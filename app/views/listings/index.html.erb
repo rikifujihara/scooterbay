@@ -3,7 +3,11 @@
 <div class='container-fluid d-flex flex-wrap'>
 <% @listings.each do |listing| %>
     <div class="card mx-2" style="width: 16rem;">
+    <% if listing.picture.attached?%>
     <%= image_tag listing.picture %>
+    <% else %>
+    <%= image_tag "default_scooter" %>
+    <% end %>
     <div class="card-body">
       <h5 class="card-title"><%=listing.title%></h5>
       <p class="card-text"><%=listing.description%></p>

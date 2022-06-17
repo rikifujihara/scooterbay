@@ -3,7 +3,11 @@
   <%= @listing.title %>
 </p>
 
-<%= image_tag @listing.picture, alt: @listing.title %>
+<% if @listing.picture.attached?%>
+<%= image_tag @listing.picture, alt: @listing.title  %>
+<% else %>
+<%= image_tag "default_scooter" %>
+<% end %>
 
 <p>
   <strong>Brand:</strong>
