@@ -38,7 +38,18 @@
   </tbody>
 </table>
 
-
+<div class='container-fluid d-flex'>
+<% @listings.each do |listing| %>
+    <div class="card mx-2" style="width: 18rem;">
+    <%= image_tag listing.picture %>
+    <div class="card-body">
+      <h5 class="card-title"><%=listing.title%></h5>
+      <p class="card-text"><%=listing.description%></p>
+      <%= link_to number_to_currency(listing.price), listing, class: "btn btn-primary"%>
+    </div>
+    </div>
+<% end %>
+</div>
 
 <br>
 
