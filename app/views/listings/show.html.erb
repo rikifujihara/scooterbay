@@ -1,9 +1,9 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Title:</strong>
   <%= @listing.title %>
 </p>
+
+<%= image_tag @listing.picture, alt: @listing.title %>
 
 <p>
   <strong>Brand:</strong>
