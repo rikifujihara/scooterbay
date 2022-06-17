@@ -21,33 +21,23 @@
 </p>
 
 <p>
-  <strong>Sold:</strong>
-  <%= @listing.sold %>
-</p>
-
-<p>
   <strong>In built lighting:</strong>
-  <%= @listing.in_built_lighting %>
+  <span><%= @listing.in_built_lighting ? "✅" : "❌" %></span>
 </p>
 
 <p>
   <strong>Double motor:</strong>
-  <%= @listing.double_motor %>
+  <span><%= @listing.double_motor ? "✅" : "❌" %></span>
 </p>
 
 <p>
   <strong>Pneumatic tires:</strong>
-  <%= @listing.pneumatic_tires %>
+  <span><%= @listing.pneumatic_tires ? "✅" : "❌" %></span>
 </p>
 
 <p>
   <strong>Has suspension:</strong>
-  <%= @listing.has_suspension %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @listing.user_id %>
+  <span><%= @listing.has_suspension ? "✅" : "❌" %></span>
 </p>
 
 <%= link_to 'Edit', edit_listing_path(@listing) %> |
