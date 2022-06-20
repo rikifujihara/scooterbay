@@ -1,6 +1,10 @@
-<h1><%=@user.first_name%></h1>
-
+<% if @user.avatar.attached? %>
 <%= image_tag @user.avatar, class: 'avatar'%>
+<% else %>
+<%= image_tag "https://scooterbay-public-images.s3.ap-southeast-2.amazonaws.com/default-avatar.jpeg", class: 'avatar'%>
+<% end %>
+
+<h1><%=@user.first_name%></h1>
 
 <h2>Bio</h2>
 <p><%=@user.bio%></p>
