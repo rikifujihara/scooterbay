@@ -6,7 +6,7 @@
     <% if listing.picture.attached?%>
     <%= image_tag listing.picture %>
     <% else %>
-    <%= image_tag "default_scooter" %>
+    <%= image_tag "https://scooterbay-public-images.s3.ap-southeast-2.amazonaws.com/default_scooter.jpeg" %>
     <% end %>
     <div class="card-body">
       <h5 class="card-title"><%=listing.title%></h5>
