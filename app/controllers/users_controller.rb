@@ -23,6 +23,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def delete_image
+    image = ActiveStorage::Attachment.find(params[:image_id])
+    if current_user == image.record || current_user.admin?
+      image.purge
+      redirect_back(fallback_location: request.referer)
+    else
+      redirect_to root_path, notice: "Access denied."
+    end
+  end
+
   private
 
   def user_params
