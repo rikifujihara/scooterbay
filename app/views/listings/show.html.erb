@@ -16,7 +16,15 @@
   </strong>
 </p>
 
+
+<% if current_user && current_user == @listing.user %>
+  <%= link_to "Placeholder", listings_path, class: 'btn btn-primary mb-2' %>
+<% elsif !@listing.sold? %>
 <%= button_to "Buy Now", place_order_path, class: 'btn btn-primary mb-2' %>
+<% else %>
+<p><strong>Item Sold</strong></p>
+<% end %>
+
 
 <p>
   <strong>Brand:</strong>
