@@ -2,7 +2,7 @@
 
 <div class='container-fluid d-flex flex-wrap'>
 <% @bought_items.each do |item| %>
-    <div class="card mx-2" style="width: 16rem;">
+    <div class="card mx-2 my-2" style="width: 16rem;">
     <% if item.listing.picture.attached?%>
     <%= image_tag item.listing.picture %>
     <% else %>
