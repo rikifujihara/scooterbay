@@ -16,6 +16,29 @@
     <%= form.text_field :first_name %>
   </div>
 
+  <div class="form-group">
+    <% if user.avatar.attached? && user.avatar.representable? %>
+      <%= image_tag user.avatar.variant(resize: '100x100'.processed) %>
+      <div>
+      <%= link_to "#" do %>
+        Replace Current Image
+      <% end %>
+      <span>|</span>
+      <%= link_to "Remove Image",
+                  delete_image_attachment_path(image_id: user.avatar.id),
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' }
+      %>
+      </div>
+    <% else %>
+      <div></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.file_field :avatar%>
+  </div>
+
   <div class="field">
     <%= form.label :bio %>
     <%= form.text_area :bio %>
