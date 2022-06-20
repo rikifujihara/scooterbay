@@ -1,2 +1,18 @@
 <h1>My Sales</h1>
-<p>Find me in app/views/orders/sold.html.erb</p>
+
+<div class='container-fluid d-flex flex-wrap'>
+<% @sold_items.each do |item| %>
+    <div class="card mx-2 my-2" style="width: 16rem;">
+    <% if item.listing.picture.attached?%>
+    <%= image_tag item.listing.picture %>
+    <% else %>
+    <%= image_tag "https://scooterbay-public-images.s3.ap-southeast-2.amazonaws.com/default_scooter.jpeg" %>
+    <% end %>
+    <div class="card-body">
+      <h5 class="card-title"><%=item.listing.title%></h5>
+      <p class="card-text"><%=item.listing.description%></p>
+      <%= link_to "View", item.listing, class: "btn btn-primary"%>
+    </div>
+    </div>
+<% end %>
+</div>
