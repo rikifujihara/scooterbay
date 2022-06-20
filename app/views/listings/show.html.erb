@@ -9,15 +9,20 @@
 <%= image_tag "default_scooter" %>
 <% end %>
 
+<p class="mt-2">
+  Price:
+  <strong>
+  <%= number_to_currency(@listing.price) %>
+  </strong>
+</p>
+
+<%= button_to "Buy Now", place_order_path, class: 'btn btn-primary mb-2' %>
+
 <p>
   <strong>Brand:</strong>
   <%= @listing.brand %>
 </p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @listing.price %>
-</p>
 
 <p>
   <strong>Description:</strong>

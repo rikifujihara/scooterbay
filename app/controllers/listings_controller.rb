@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-  before_action :set_listing, only: %i[ show edit update destroy authorize_user]
+  before_action :set_listing, only: %i[ show edit update destroy authorize_user place_order ]
   before_action :authenticate_user!, except: %i[ index show ]
   before_action :authorize_user, only: %i[ edit update destroy ]
 
@@ -60,6 +60,14 @@ class ListingsController < ApplicationController
     end
   end
 
+  def place_order
+    Order.create(
+    listing_id: @listing.id,
+    seller_id: @listing.user_id,
+    buyer_id: current_user.id
+    )
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_listing
