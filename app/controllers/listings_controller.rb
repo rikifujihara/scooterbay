@@ -66,6 +66,8 @@ class ListingsController < ApplicationController
     seller_id: @listing.user_id,
     buyer_id: current_user.id
     )
+
+    redirect_to listings_path
   end
   
   private
