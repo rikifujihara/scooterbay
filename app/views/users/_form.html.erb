@@ -17,8 +17,8 @@
   </div>
 
   <div class="form-group">
-    <% if user.avatar.attached? && user.avatar.representable? %>
-      <%= image_tag user.avatar.variant(resize: '100x100'.processed) %>
+    <% if user.avatar.attached? %>
+      <%= image_tag user.avatar, class: 'avatar'%>
       <div>
       <%= link_to "#" do %>
         Replace Current Image
@@ -31,12 +31,13 @@
       %>
       </div>
     <% else %>
-      <div></div>
+      <div>put default avatar here</div>
     <% end %>
   </div>
 
   <div>
-    <%= form.file_field :avatar%>
+    <%= form.label :avatar%>
+    <%= form.file_field :avatar %>
   </div>
 
   <div class="field">
