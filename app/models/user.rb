@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_one_attached :avatar, dependent: :destroy
+  validates :avatar, content_type: [:png, :jpg, :jpeg]
+
   has_many :listings
 
   has_many :sold_orders, foreign_key: "seller_id", class_name: "Order"
