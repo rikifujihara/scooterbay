@@ -25,7 +25,7 @@
       <% end %>
       <span>|</span>
       <%= link_to "Remove Image",
-                  delete_image_attachment_path(image_id: user.avatar.id),
+                  delete_image_user_path(image_id: user.avatar.id),
                   method: :delete,
                   data: { confirm: 'Are you sure?' }
       %>
