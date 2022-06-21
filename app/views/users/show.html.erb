@@ -31,6 +31,9 @@
       <% else %>
       <%= link_to "Sold", listing, class: "btn btn-primary"%>
       <% end %>
+      <% if listing.user == current_user %>
+      <%= link_to 'Delete Listing', listing, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
     </div>
     </div>
 <% end %>
