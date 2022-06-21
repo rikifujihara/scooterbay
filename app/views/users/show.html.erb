@@ -38,3 +38,7 @@
     </div>
 <% end %>
 </div>
+
+<% if current_user == @user %>
+  <%= link_to 'New Listing', new_listing_path%>
+<% end %>
