@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_20_052052) do
+ActiveRecord::Schema.define(version: 2022_06_22_042029) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,18 @@ ActiveRecord::Schema.define(version: 2022_06_20_052052) do
     t.index ["user_id"], name: "index_listings_on_user_id"
   end
 
+  create_table "offers", force: :cascade do |t|
+    t.bigint "listing_id", null: false
+    t.bigint "offerer_id", null: false
+    t.bigint "merchant_id", null: false
+    t.integer "price", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["listing_id"], name: "index_offers_on_listing_id"
+    t.index ["merchant_id"], name: "index_offers_on_merchant_id"
+    t.index ["offerer_id"], name: "index_offers_on_offerer_id"
+  end
+
   create_table "orders", force: :cascade do |t|
     t.bigint "listing_id", null: false
     t.bigint "buyer_id", null: false
@@ -89,6 +101,9 @@ ActiveRecord::Schema.define(version: 2022_06_20_052052) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "listings", "users"
+  add_foreign_key "offers", "listings"
+  add_foreign_key "offers", "users", column: "merchant_id"
+  add_foreign_key "offers", "users", column: "offerer_id"
   add_foreign_key "orders", "listings"
   add_foreign_key "orders", "users", column: "buyer_id"
   add_foreign_key "orders", "users", column: "seller_id"
