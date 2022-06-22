@@ -6,11 +6,11 @@ class OffersController < ApplicationController
     end
 
     def offers_in
-        @offers_in_items = current_user.offers_in
+        @offers_in = current_user.offers_in
     end
 
     def offers_out
-        @offers_out_items = current_user.offers_out
+        @offers_out = current_user.offers_out
     end
 
     def new
