@@ -4,6 +4,9 @@ class OffersController < ApplicationController
     def index
         @offers = Offer.all
     end
+   
+    def show
+    end
 
     def offers_in
         @offers_in = current_user.offers_in

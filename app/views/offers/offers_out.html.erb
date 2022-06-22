@@ -1,5 +1,19 @@
 <h1>Offers Out</h1>
 
-<% @offers_out.each do |offer|%>
-<h1><%=offer.listing.title%></h1>
+<div class='container-fluid d-flex flex-wrap'>
+<% @offers_out.each do |offer| %>
+    <div class="card mx-2 my-2" style="width: 16rem;">
+    <% if offer.listing.picture.attached?%>
+    <%= image_tag offer.listing.picture %>
+    <% else %>
+    <%= image_tag "https://scooterbay-public-images.s3.ap-southeast-2.amazonaws.com/default_scooter.jpeg" %>
+    <% end %>
+    <div class="card-body">
+      <h5 class="card-title"><%=offer.listing.title%></h5>
+      <p class="card-text"><%=offer.listing.description%></p>
+      <h6 class="card-text">Price offered:<%=offer.price%></h6>
+      <%= link_to "View Offer", offer, class: "btn btn-primary"%>
+    </div>
+    </div>
 <% end %>
+</div>

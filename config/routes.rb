@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'orders/sold'
   get 'offers/offers_out'
   get 'offers/offers_in'
+  resources :offers, only: [:show, :edit, :update]
   resources :listings
   devise_for :users
   resources :users, only: [:index, :show, :edit, :update] do
