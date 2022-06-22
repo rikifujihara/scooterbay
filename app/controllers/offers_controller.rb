@@ -23,6 +23,18 @@ class OffersController < ApplicationController
     def edit
     end
 
+    def update
+        respond_to do |format|
+          if @offer.update(offer_params)
+            format.html { redirect_to offer_url(@offer), notice: "Offer was successfully updated." }
+            format.json { render :show, status: :ok, location: @offer }
+          else
+            format.html { render :edit, status: :unprocessable_entity }
+            format.json { render json: @offer.errors, status: :unprocessable_entity }
+          end
+        end
+    end
+
   private
 
     def set_offer

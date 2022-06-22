@@ -1,5 +1,4 @@
 class OrdersController < ApplicationController
-  end
 
   def bought
     @bought_orders = current_user.bought_orders
