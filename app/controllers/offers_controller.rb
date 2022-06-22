@@ -1,8 +1,14 @@
 class OffersController < ApplicationController
-    before_action :set_offer only: %i[ show edit update destroy ]
-    
+    before_action :set_offer, only: %i[ show edit update destroy ]
+   
+    def index
+        @offers = Offer.all
+    end
     def new
         @offer = Offer.new
+    end
+
+    def edit
     end
 
   private

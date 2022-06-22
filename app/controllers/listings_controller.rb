@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-  before_action :set_listing, only: %i[ show edit update destroy authorize_user place_order ]
+  before_action :set_listing, only: %i[ show edit update destroy authorize_user place_order place_offer ]
   before_action :authenticate_user!, except: %i[ index show ]
   before_action :authorize_user, only: %i[ edit update destroy ]
 
@@ -70,6 +70,16 @@ class ListingsController < ApplicationController
     @listing.update(sold: true)
 
     redirect_to listings_path
+  end
+
+  def place_offer
+    Offer.create(
+    listing_id: @listing.id,
+    merchant_id: @listing.user_id,
+    offerer_id: current_user.id
+    )
+
+    redirect_to offers_path
   end
   
   private

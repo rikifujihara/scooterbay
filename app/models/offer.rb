@@ -3,3 +3,5 @@ class Offer < ApplicationRecord
   belongs_to :offerer, foreign_key: "offerer_id", class_name: "Offer"
   belongs_to :merchant, foreign_key: "merchant_id", class_name: "Offer"
 end
+
+rails g migration RemovePriceFromOffers price:integer

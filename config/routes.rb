@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'orders/success'
   get 'orders/bought'
   get 'orders/sold'
+  resources :offers
   resources :listings
   devise_for :users
   resources :users, only: [:index, :show, :edit, :update] do
@@ -12,5 +13,6 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   post 'listings/:id/order', to: 'listings#place_order', as: "place_order"
+  post 'listings/:id/offer', to: 'listings#place_offer', as: "place_offer"
   
 end

@@ -21,6 +21,7 @@
   <%= link_to "View my listings", user_path(current_user), class: 'btn btn-primary mb-2' %>
 <% elsif !@listing.sold? %>
 <%= button_to "Buy Now", place_order_path, class: 'btn btn-primary mb-2' %>
+<%= button_to "Make offer", place_offer_path, class: 'btn btn-primary mb-2' %>
 <% else %>
 <p><strong>Item Sold</strong></p>
 <% end %>
