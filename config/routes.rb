@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   get 'orders/success'
   get 'orders/bought'
   get 'orders/sold'
-  resources :offers
+  get 'offers/offers_out'
+  get 'offers/offers_in'
   resources :listings
   devise_for :users
   resources :users, only: [:index, :show, :edit, :update] do

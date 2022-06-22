@@ -1,17 +1,17 @@
 <h1>My Purchases</h1>
 
 <div class='container-fluid d-flex flex-wrap'>
-<% @bought_items.each do |item| %>
+<% @bought_orders.each do |order| %>
     <div class="card mx-2 my-2" style="width: 16rem;">
-    <% if item.listing.picture.attached?%>
-    <%= image_tag item.listing.picture %>
+    <% if order.listing.picture.attached?%>
+    <%= image_tag order.listing.picture %>
     <% else %>
     <%= image_tag "https://scooterbay-public-images.s3.ap-southeast-2.amazonaws.com/default_scooter.jpeg" %>
     <% end %>
     <div class="card-body">
-      <h5 class="card-title"><%=item.listing.title%></h5>
-      <p class="card-text"><%=item.listing.description%></p>
-      <%= link_to "View", item.listing, class: "btn btn-primary"%>
+      <h5 class="card-title"><%=order.listing.title%></h5>
+      <p class="card-text"><%=order.listing.description%></p>
+      <%= link_to "View", order.listing, class: "btn btn-primary"%>
     </div>
     </div>
 <% end %>

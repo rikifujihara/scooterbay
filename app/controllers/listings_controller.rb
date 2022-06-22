@@ -79,7 +79,7 @@ class ListingsController < ApplicationController
     offerer_id: current_user.id
     )
 
-    redirect_to offers_path
+    redirect_to offers_index_path
   end
   
   private

@@ -1,12 +1,11 @@
 class OrdersController < ApplicationController
-  def success
   end
 
   def bought
-    @bought_items = current_user.bought_orders
+    @bought_orders = current_user.bought_orders
   end
 
   def sold
-    @sold_items = current_user.sold_orders
+    @sold_orders = current_user.sold_orders
   end
 end
