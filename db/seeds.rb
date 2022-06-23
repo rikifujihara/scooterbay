@@ -5,3 +5,21 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+users = [
+    { email: 'rikifujihara@gmail.com', username: 'rikifujihara', first_name: 'Riki', admin: true}
+]
+
+users.each do |user|
+    this_user = User.where(
+        email: user[:email],
+    ).first_or_initialize
+
+    this_user.update!(
+        username: user[:username],
+        first_name: user[:first_name],
+        admin: user[:admin],
+        password: 123456
+    )
+    this_user.save
+end
