@@ -90,7 +90,7 @@ class ListingsController < ApplicationController
     end
 
     def authorize_user
-      if @listing.user != current_user
+      if !current_user.admin && @listing.user != current_user
         flash[:alert] = "Access denied"
         redirect_to listings_path
       end

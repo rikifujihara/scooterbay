@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_one_attached :avatar, dependent: :destroy
   validates :avatar, content_type: [:png, :jpg, :jpeg]
 
-  has_many :listings
+  has_many :listings, dependent: :destroy
 
   has_many :sold_orders, foreign_key: "seller_id", class_name: "Order"
   has_many :bought_orders, foreign_key: "buyer_id", class_name: "Order"
