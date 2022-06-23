@@ -1,5 +1,5 @@
 <p>
-  <strong>Title:</strong>
+  <strong>Scooter Model:</strong>
   <%= @offer.listing.title %>
 </p>
 
@@ -10,9 +10,16 @@
 <% end %>
 
 <p class="mt-2">
-  Price:
+  Merchant price:
   <strong>
   <%= number_to_currency(@offer.listing.price) %>
+  </strong>
+</p>
+
+<p class="mt-2">
+  Your offer:
+  <strong>
+  <%= number_to_currency(@offer.price) %>
   </strong>
 </p>
 
@@ -25,37 +32,3 @@
 <% else %>
 <p><strong>Item Sold</strong></p>
 <% end %>
-
-<p>
-  <strong>Brand:</strong>
-  <%= @offer.listing.brand %>
-</p>
-
-
-<p>
-  <strong>Description:</strong>
-  <%= @offer.listing.description %>
-</p>
-
-<p>
-  <strong>In built lighting:</strong>
-  <span><%= @offer.listing.in_built_lighting ? "✅" : "❌" %></span>
-</p>
-
-<p>
-  <strong>Double motor:</strong>
-  <span><%= @offer.listing.double_motor ? "✅" : "❌" %></span>
-</p>
-
-<p>
-  <strong>Pneumatic tires:</strong>
-  <span><%= @offer.listing.pneumatic_tires ? "✅" : "❌" %></span>
-</p>
-
-<p>
-  <strong>Has suspension:</strong>
-  <span><%= @offer.listing.has_suspension ? "✅" : "❌" %></span>
-</p>
-
-<%= link_to 'Edit', edit_listing_path(@offer.listing) %> |
-<%= link_to 'Back', listings_path %>

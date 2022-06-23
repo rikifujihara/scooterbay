@@ -81,6 +81,7 @@ class ListingsController < ApplicationController
 
     redirect_to edit_offer_path(@listing.offers.last)
   end
+
   
   private
     # Use callbacks to share common setup or constraints between actions.
