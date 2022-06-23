@@ -79,7 +79,7 @@ class ListingsController < ApplicationController
     offerer_id: current_user.id
     )
 
-    redirect_to offers_offers_out_path
+    redirect_to edit_offer_path(@listing.offers.last)
   end
   
   private
