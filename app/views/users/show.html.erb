@@ -9,8 +9,9 @@
 <h2>Bio</h2>
 <p><%=@user.bio%></p>
 
-<% if current_user.id == @user.id %>
+<% if current_user.admin? || current_user.id == @user.id %>
 <%= link_to "Edit Profile", edit_user_path(current_user), class: 'btn btn-primary' %>
+<%= link_to 'Delete Account', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>
 
 <h2>Listings by <%=@user.first_name%></h1>

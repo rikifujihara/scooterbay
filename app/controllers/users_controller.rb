@@ -33,6 +33,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+
+    respond_to do |format|
+      format.html { redirect_to listings_url, notice: "Account successfully deleted." }
+      format.json { head :no_content }
+    end
+  end
+
   private
 
   def user_params

@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   get 'offers/offers_out'
   get 'offers/offers_in'
   resources :offers, only: [:show, :edit, :update]
-  resources :listings
   devise_for :users
+  resources :listings
+  resources :users, only: [:destroy]
   resources :users, only: [:index, :show, :edit, :update] do
     member do
       delete 'delete_image/:image_id', action: 'delete_image', as: 'delete_image'
