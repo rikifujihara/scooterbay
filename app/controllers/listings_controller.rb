@@ -1,5 +1,6 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: %i[ show edit update destroy authorize_user place_order place_offer ]
+  before_action :set_offer, only: %i[ show ]
   before_action :authenticate_user!, except: %i[ index show ]
   before_action :authorize_user, only: %i[ edit update destroy ]
 
@@ -78,15 +79,18 @@ class ListingsController < ApplicationController
     merchant_id: @listing.user_id,
     offerer_id: current_user.id
     )
-
+    flash[:notice] = "Offer created! Enter the offer amount or delete offer to cancel."
     redirect_to edit_offer_path(@listing.offers.last)
   end
-
   
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_listing
       @listing = Listing.find(params[:id])
+    end
+   
+    def set_offer
+      @offer = Offer.find_by(listing_id: @listing.id)
     end
 
     def authorize_user

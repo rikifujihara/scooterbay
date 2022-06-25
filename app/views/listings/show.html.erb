@@ -21,7 +21,11 @@
   <%= link_to "View my listings", user_path(current_user), class: 'btn btn-primary mb-2' %>
 <% elsif !@listing.sold? %>
 <%= button_to "Buy Now", place_order_path, class: 'btn btn-primary mb-2' %>
-<%= button_to "Make offer", place_offer_path, class: 'btn btn-primary mb-2' %>
+  <% if !user_made_offer? %>
+  <%= button_to "Make offer", place_offer_path, class: 'btn btn-primary mb-2' %>
+  <% else %>
+  <%= link_to "View Offer", offer_path(@offer), class: 'btn btn-primary mb-2' %>
+  <% end %>
 <% else %>
 <p><strong>Item Sold</strong></p>
 <% end %>
@@ -63,6 +67,7 @@
 <%= link_to 'Delete', @listing, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <% end %>
 
+<% unless @listing.user == current_user %>
 <h2>Merchant Details</h2>
 <% if @listing.user.avatar.attached? %>
 <%= image_tag @listing.user.avatar, class: 'avatar'%>
@@ -71,5 +76,10 @@
 <% end %>
 <h5>Name: <%= @listing.user.first_name %> </h5>
 <h5>Email: <%= @listing.user.email %> </h5>
+<% end %>
 
 <%= link_to 'Back', listings_path %>
+
+  <% if Rails.env.development? %>
+  <%= console %>
+  <% end %>
