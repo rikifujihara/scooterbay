@@ -1,5 +1,5 @@
 <p>
-  <strong>Title:</strong>
+  <strong>Model:</strong>
   <%= @listing.title %>
 </p>
 
@@ -62,4 +62,14 @@
 <%= link_to 'Edit', edit_listing_path(@listing) %> |
 <%= link_to 'Delete', @listing, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <% end %>
+
+<h2>Merchant Details</h2>
+<% if @listing.user.avatar.attached? %>
+<%= image_tag @listing.user.avatar, class: 'avatar'%>
+<% else %>
+<%= image_tag "https://scooterbay-public-images.s3.ap-southeast-2.amazonaws.com/default-avatar.jpeg", class: 'avatar'%>
+<% end %>
+<h5>Name: <%= @listing.user.first_name %> </h5>
+<h5>Email: <%= @listing.user.email %> </h5>
+
 <%= link_to 'Back', listings_path %>

@@ -1,6 +1,14 @@
 <h1>Offer for <%=@offer.listing.title%></h1>
-
 <%= render 'form', offer: @offer %>
 
 <%= link_to 'Show', @offer %> |
 <%= link_to 'Back', listings_path %>
+
+<h2>Merchant Details</h2>
+<% if @offer.merchant.avatar.attached? %>
+<%= image_tag @offer.merchant.avatar, class: 'avatar'%>
+<% else %>
+<%= image_tag "https://scooterbay-public-images.s3.ap-southeast-2.amazonaws.com/default-avatar.jpeg", class: 'avatar'%>
+<% end %>
+<h5>Name: <%= @offer.merchant.first_name %> </h5>
+<h5>Email: <%= @offer.merchant.email %> </h5>
