@@ -40,7 +40,7 @@ class OffersController < ApplicationController
   private
 
     def authorize_user
-      if !current_user.admin && (current_user != ( @offer.merchant && @offer.offerer))
+      if !current_user.admin && (current_user != @offer.merchant && current_user != @offer.offerer)
         flash[:alert] = "Access denied"
         redirect_to listings_path
       end

@@ -11,7 +11,7 @@
     <div class="card-body">
       <h5 class="card-title"><%=offer.listing.title%></h5>
       <p class="card-text"><%=offer.listing.description%></p>
-      <h6 class="card-text">Price offered:<%=offer.price%></h6>
+      <h6 class="card-text">Price offered: <%=number_to_currency(offer.price)%></h6>
       <%= link_to "View Offer", offer, class: "btn btn-primary"%>
     </div>
     </div>
