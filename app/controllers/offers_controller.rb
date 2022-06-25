@@ -1,5 +1,7 @@
 class OffersController < ApplicationController
-    before_action :set_offer, only: %i[ show edit update destroy ]
+    before_action :set_offer, only: %i[ show edit update destroy authorize_user]
+    before_action :authorize_user, only: %i[ edit update destroy show ]
+    before_action :authenticate_user!
    
     def index
         @offers = Offer.all
@@ -36,6 +38,13 @@ class OffersController < ApplicationController
     end
 
   private
+
+    def authorize_user
+      if !current_user.admin && (current_user != ( @offer.merchant && @offer.offerer))
+        flash[:alert] = "Access denied"
+        redirect_to listings_path
+      end
+    end
 
     def set_offer
         @offer = Offer.find(params[:id])
