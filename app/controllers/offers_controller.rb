@@ -17,6 +17,16 @@ class OffersController < ApplicationController
     def offers_out
         @offers_out = current_user.offers_out
     end
+  
+    def destroy
+      @offer = Offer.find(params[:id])
+      @offer.destroy
+  
+      respond_to do |format|
+        format.html { redirect_to user_path(current_user), notice: "Offer successfully removed." }
+        format.json { head :no_content }
+      end
+    end
 
     def new
         @offer = Offer.new

@@ -56,7 +56,7 @@ class ListingsController < ApplicationController
     @listing.destroy
 
     respond_to do |format|
-      format.html { redirect_to listings_url, notice: "Listing was successfully destroyed." }
+      format.html { redirect_to user_path(current_user), notice: "Listing was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -90,7 +90,7 @@ class ListingsController < ApplicationController
     end
    
     def set_offer
-      @offer = Offer.find_by(listing_id: @listing.id)
+      @offer = Offer.find_by(listing_id: @listing.id, offerer_id: current_user.id)
     end
 
     def authorize_user

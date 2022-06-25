@@ -38,7 +38,7 @@ class UsersController < ApplicationController
     @user.destroy
 
     respond_to do |format|
-      format.html { redirect_to listings_url, notice: "Account successfully deleted." }
+      format.html { redirect_to root, notice: "Account successfully deleted." }
       format.json { head :no_content }
     end
   end
