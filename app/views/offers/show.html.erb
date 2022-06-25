@@ -17,18 +17,28 @@
 </p>
 
 <p class="mt-2">
-  Your offer:
+  Price offered:
   <strong>
   <%= number_to_currency(@offer.price) %>
   </strong>
 </p>
 
 
-<% if current_user && current_user == @offer.listing.user %>
+<% if current_user && current_user == @offer.merchant %>
   <%= link_to "View my listings", user_path(current_user), class: 'btn btn-primary mb-2' %>
 <% elsif !@offer.listing.sold? %>
 <%= link_to "View Listing", @offer.listing, class: 'btn btn-primary mb-2' %>
 <%= link_to "Edit Offer", edit_offer_path %>
 <% else %>
 <p><strong>Item Sold</strong></p>
+<% end %>
+
+<% if current_user && current_user == @offer.merchant %>
+  <h2>Buyer Details</h2>
+  <h5>Name: <%= @offer.offerer.first_name %> </h5>
+  <h5>Email: <%= @offer.offerer.email %> </h5>
+<% elsif current_user && current_user == @offer.offerer %>
+  <h2>Merchant Details</h2>
+  <h5>Name: <%= @offer.merchant.first_name %> </h5>
+  <h5>Email: <%= @offer.merchant.email %> </h5>
 <% end %>
