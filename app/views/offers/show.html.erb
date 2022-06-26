@@ -1,4 +1,8 @@
-<h2>Offer for <%= @offer.listing.title %></h2>
+<% if current_user == @offer.merchant%>
+<h2>Offer received for listing: "<%= @offer.listing.title %>"</h2>
+<% else %>
+<h2>Your offer for listing: "<%= @offer.listing.title %>"</h2>
+<% end %>
 
 <% if @offer.listing.picture.attached?%>
 <%= image_tag @offer.listing.picture, alt: @offer.listing.title  %>
@@ -18,12 +22,16 @@
   <strong>
   <%= number_to_currency(@offer.price) %>
   </strong>
-<% if current_user && current_user == @offer.offerer %>
-<%= link_to "Edit Offer", edit_offer_path %>
-<% end %>
+
+<p>
+  Message: <%= @offer.message %>
 </p>
 
 <p class="text-muted">Offer made <%= time_ago_in_words(@offer.created_at) %> ago</p>
+
+<% if current_user && current_user == @offer.offerer %>
+<p><%= link_to "Edit Offer", edit_offer_path %></p>
+<% end %>
 
 <%= link_to "View Listing", @offer.listing, class: 'btn btn-primary mb-2' %>
 
