@@ -5,7 +5,7 @@
 <% end %>
 
 <h1><%=@user.first_name%></h1>
-
+<p class="text-muted">Member since <%=@user.created_at.to_date%></p>
 
 <% if @user.bio? %>
 <h2>Bio</h2>

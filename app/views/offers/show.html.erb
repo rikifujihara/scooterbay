@@ -1,7 +1,4 @@
-<p>
-  <strong>Scooter Model:</strong>
-  <%= @offer.listing.title %>
-</p>
+<h2>Offer for <%= @offer.listing.title %></h2>
 
 <% if @offer.listing.picture.attached?%>
 <%= image_tag @offer.listing.picture, alt: @offer.listing.title  %>
@@ -10,13 +7,13 @@
 <% end %>
 
 <p class="mt-2">
-  Merchant price:
+  Listing price:
   <strong>
   <%= number_to_currency(@offer.listing.price) %>
   </strong>
 </p>
 
-<p class="mt-2">
+<p>
   Price offered:
   <strong>
   <%= number_to_currency(@offer.price) %>
@@ -26,12 +23,9 @@
 <% end %>
 </p>
 
+<p class="text-muted">Offer made <%= time_ago_in_words(@offer.created_at) %> ago</p>
 
-<% if current_user && current_user == @offer.merchant %>
-  <%= link_to "View my listings", user_path(current_user), class: 'btn btn-primary mb-2' %>
-<% elsif current_user && current_user == @offer.offerer %>
 <%= link_to "View Listing", @offer.listing, class: 'btn btn-primary mb-2' %>
-<% end %>
 
 <% if current_user && current_user == @offer.merchant %>
   <h2>Buyer Details</h2>
