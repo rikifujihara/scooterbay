@@ -1,20 +1,25 @@
-<h1>Offers Out</h1>
+<% if @offers_out.size > 0 %>
+  <h1>Offers Out</h1>
 
-<div class='container-fluid d-flex flex-wrap'>
-<% @offers_out.each do |offer| %>
-    <div class="card mx-2 my-2" style="width: 16rem;">
-    <% if offer.listing.picture.attached?%>
-    <%= image_tag offer.listing.picture %>
-    <% else %>
-    <%= image_tag "https://scooterbay-public-images.s3.ap-southeast-2.amazonaws.com/default_scooter.jpeg" %>
-    <% end %>
-    <div class="card-body">
-      <h5 class="card-title"><%=offer.listing.title%></h5>
-      <p class="card-text"><%=offer.listing.description%></p>
-      <h6 class="card-text">Price offered: <%=number_to_currency(offer.price)%></h6>
-      <%= link_to "View Offer", offer, class: "btn btn-primary my-2"%>
-      <%= button_to "Remove Offer", offer, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary"%>
-    </div>
-    </div>
+  <div class='container-fluid d-flex flex-wrap'>
+  <% @offers_out.each do |offer| %>
+      <div class="card mx-2 my-2" style="width: 16rem;">
+      <% if offer.listing.picture.attached?%>
+      <%= image_tag offer.listing.picture %>
+      <% else %>
+      <%= image_tag "https://scooterbay-public-images.s3.ap-southeast-2.amazonaws.com/default_scooter.jpeg" %>
+      <% end %>
+      <div class="card-body">
+        <h5 class="card-title"><%=offer.listing.title%></h5>
+        <p class="card-text"><%=offer.listing.description%></p>
+        <h6 class="card-text">Price offered: <%=number_to_currency(offer.price)%></h6>
+        <%= link_to "View Offer", offer, class: "btn btn-primary my-2"%>
+        <%= button_to "Remove Offer", offer, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary"%>
+      </div>
+      </div>
+  <% end %>
+  </div>
+<% else %>
+  <h1>You haven't made any offers yet.</h1>
+  <p>Click <%= link_to "here", listings_path %> to browse scooters.</p>
 <% end %>
-</div>
