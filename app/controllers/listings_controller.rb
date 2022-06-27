@@ -1,6 +1,7 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: %i[ show edit update destroy authorize_user place_order place_offer ]
   before_action :set_offer, only: %i[ show ]
+  before_action :set_form_vars, only: %i[ new edit update]
   before_action :authenticate_user!, except: %i[ index show ]
   before_action :authorize_user, only: %i[ edit update destroy ]
 
@@ -100,8 +101,12 @@ class ListingsController < ApplicationController
       end
     end
 
+    def set_form_vars
+      @categories = Category.all
+    end
+
     # Only allow a list of trusted parameters through.
     def listing_params
-      params.require(:listing).permit(:title, :brand, :price, :description, :sold, :in_built_lighting, :double_motor, :pneumatic_tires, :has_suspension, :user_id, :picture)
+      params.require(:listing).permit(:title, :brand, :price, :description, :sold, :in_built_lighting, :double_motor, :pneumatic_tires, :has_suspension, :user_id, :picture, :category_id)
     end
 end
