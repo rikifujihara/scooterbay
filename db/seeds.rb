@@ -24,7 +24,7 @@ users.each do |user|
     this_user.save
 end
 
-categories = ["Off-Road", "High-Speed", "Fat-Tyre", "Commuter", "Kids", "Foldable"]
+categories = ["Off-Road", "High-Speed", "Commuter", "Kids"]
 
 if Category.count == 0
     categories.each do |category|

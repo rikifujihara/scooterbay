@@ -9,6 +9,30 @@ class ListingsController < ApplicationController
   def index
     @listings = Listing.all
   end
+  
+  def offroad
+    @listings = Listing.where(category_id: 1)
+  end
+  
+  def highspeed
+    @listings = Listing.where(category_id: 2)
+  end
+  
+  def fattyre
+    @listings = Listing.where(category_id: 3)
+  end
+  
+  def commuter
+    @listings = Listing.where(category_id: 4)
+  end
+  
+  def kids
+    @listings = Listing.where(category_id: 5)
+  end
+  
+  def foldable
+    @listings = Listing.where(category_id: 6)
+  end
 
   # GET /listings/1 or /listings/1.json
   def show

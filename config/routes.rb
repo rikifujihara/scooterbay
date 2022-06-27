@@ -1,12 +1,8 @@
 Rails.application.routes.draw do
-  get 'orders/success'
-  get 'orders/bought'
-  get 'orders/sold'
+  resources :offers, only: [:show, :edit, :update, :destroy]
   get 'offers/offers_out'
   get 'offers/offers_in'
-  resources :offers, only: [:show, :edit, :update, :destroy]
   devise_for :users
-  resources :listings
   resources :users, only: [:destroy]
   resources :users, only: [:index, :show, :edit, :update] do
     member do
@@ -14,8 +10,15 @@ Rails.application.routes.draw do
     end
   end
   root 'pages#home'
-
+  
+  get 'listings/offroad'
+  get 'listings/highspeed'
+  get 'listings/fattyre'
+  get 'listings/commuter'
+  get 'listings/kids'
+  get 'listings/foldable'
   post 'listings/:id/order', to: 'listings#place_order', as: "place_order"
   post 'listings/:id/offer', to: 'listings#place_offer', as: "place_offer"
+  resources :listings
   
 end
