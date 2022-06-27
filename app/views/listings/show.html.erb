@@ -3,6 +3,11 @@
   <%= @listing.title %>
 </p>
 
+<p>
+  <strong>Category:</strong>
+  <%= @listing.category.name %>
+</p>
+
 <% if @listing.picture.attached?%>
 <%= image_tag @listing.picture, alt: @listing.title  %>
 <% else %>
@@ -15,6 +20,7 @@
   <%= number_to_currency(@listing.price) %>
   </strong>
 </p>
+
 
 
 <% if current_user == @listing.user %>
