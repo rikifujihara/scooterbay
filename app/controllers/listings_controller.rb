@@ -103,6 +103,15 @@ class ListingsController < ApplicationController
     flash[:notice] = "Please specify the address of your listing."
     redirect_to edit_address_path(@listing.address)
   end
+
+  def watch_item
+    Watched_item.create(
+    listing_id: @listing.id,
+    user_id: current_user.id
+    )
+    flash[:notice] = "Listing added to watchlist"
+    redirect_to @listing
+  end
   
   private
     # Use callbacks to share common setup or constraints between actions.
