@@ -3,10 +3,11 @@ class AddressesController < ApplicationController
 
   def destroy
     @address = Address.find(params[:id])
+    @tmp_listing = @address.listing
     @address.destroy
 
     respond_to do |format|
-      format.html { redirect_to user_path(current_user), notice: "Offer successfully removed." }
+      format.html { redirect_to @tmp_listing, notice: "Address successfully removed." }
       format.json { head :no_content }
     end
   end
