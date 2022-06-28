@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'addresses/edit'
   resources :offers, only: [:show, :edit, :update, :destroy]
   get 'offers/offers_out'
   get 'offers/offers_in'
