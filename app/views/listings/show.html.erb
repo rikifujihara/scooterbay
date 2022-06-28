@@ -40,6 +40,11 @@
   <%= link_to "View Offer", offer_path(@offer), class: 'btn btn-primary mb-2' %>
   <% end %>
 <% end %>
+<% if item_watched? %>
+<%= button_to "Unwatch item", watched_item_url, method: :delete, class: "btn btn-primary"%>
+<% else %>
+<%= button_to "Watch item", watch_item_path, class: 'btn btn-secondary mb-2' %>
+<% end %>
 
 
 <p>

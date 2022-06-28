@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-  before_action :set_listing, only: %i[ show edit update destroy authorize_user place_order place_offer specify_address]
+  before_action :set_listing, only: %i[ show edit update destroy authorize_user place_order place_offer specify_address watch_item]
   before_action :set_offer, only: %i[ show ]
   before_action :set_form_vars, only: %i[ new edit update]
   before_action :authenticate_user!, except: %i[ index show ]
@@ -105,7 +105,7 @@ class ListingsController < ApplicationController
   end
 
   def watch_item
-    Watched_item.create(
+    WatchedItem.create(
     listing_id: @listing.id,
     user_id: current_user.id
     )

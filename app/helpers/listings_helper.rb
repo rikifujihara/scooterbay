@@ -3,6 +3,10 @@ module ListingsHelper
         Offer.find_by(listing_id: @listing.id, offerer_id: current_user.id)
     end
 
+    def item_watched?
+        WatchedItem.find_by(listing_id: @listing.id, user_id: current_user.id)
+    end
+
     def format_address(address)
         unwanted = ["id", "listing_id", "created_at", "updated_at"]
         formatted = ""
