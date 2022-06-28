@@ -13,6 +13,11 @@
 <% else %>
 <%= image_tag "https://scooterbay-public-images.s3.ap-southeast-2.amazonaws.com/default_scooter.jpeg" %>
 <% end %>
+<% if user_signed_in? %>
+  <p>Location: <%= format_address(@listing.address)%></p>
+<% else %>
+  <p>Location: Please <%=link_to "log in", new_user_session_path %> to view location</p>
+<% end %>
 
 <p class="mt-2">
   Price:
@@ -21,14 +26,19 @@
   </strong>
 </p>
 
-
-
 <% if current_user == @listing.user %>
   <%= link_to "View my listings", user_path(current_user), class: 'btn btn-primary mb-2' %>
-<% elsif !user_made_offer? %>
+    <% if !@listing.address %>
+    <%= button_to "Add address for listing", specify_address_path, class: 'btn btn-primary mb-2' %>
+    <% else %>
+    <%= link_to "Edit address", edit_address_path(@listing.address), class: 'btn btn-secondary mb-2' %>
+    <% end %>
+<% elsif current_user && !user_made_offer? %>
 <%= button_to "Make offer", place_offer_path, class: 'btn btn-primary mb-2' %>
 <% else %>
-<%= link_to "View Offer", offer_path(@offer), class: 'btn btn-primary mb-2' %>
+  <% if current_user %>
+  <%= link_to "View Offer", offer_path(@offer), class: 'btn btn-primary mb-2' %>
+  <% end %>
 <% end %>
 
 
@@ -63,7 +73,7 @@
   <span><%= @listing.has_suspension ? "✅" : "❌" %></span>
 </p>
 
-<% if current_user && current_user == @listing.user || current_user.admin? %>
+<% if current_user && current_user == @listing.user || current_user && current_user.admin? %>
 <%= link_to 'Edit', edit_listing_path(@listing) %> |
 <%= link_to 'Delete', @listing, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <% end %>

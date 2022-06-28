@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-  before_action :set_listing, only: %i[ show edit update destroy authorize_user place_order place_offer ]
+  before_action :set_listing, only: %i[ show edit update destroy authorize_user place_order place_offer specify_address]
   before_action :set_offer, only: %i[ show ]
   before_action :set_form_vars, only: %i[ new edit update]
   before_action :authenticate_user!, except: %i[ index show ]
@@ -86,18 +86,6 @@ class ListingsController < ApplicationController
     end
   end
 
-  def place_order
-    Order.create(
-    listing_id: @listing.id,
-    seller_id: @listing.user_id,
-    buyer_id: current_user.id
-    )
-
-    @listing.update(sold: true)
-
-    redirect_to listings_path
-  end
-
   def place_offer
     Offer.create(
     listing_id: @listing.id,
@@ -107,6 +95,14 @@ class ListingsController < ApplicationController
     flash[:notice] = "Offer created! Enter the offer amount or delete offer to cancel."
     redirect_to edit_offer_path(@listing.offers.last)
   end
+
+  def specify_address
+    Address.create(
+    listing_id: @listing.id
+    )
+    flash[:notice] = "Please specify the address of your listing."
+    redirect_to edit_address_path(@listing.address)
+  end
   
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -115,7 +111,9 @@ class ListingsController < ApplicationController
     end
    
     def set_offer
+      if current_user
       @offer = Offer.find_by(listing_id: @listing.id, offerer_id: current_user.id)
+      end
     end
 
     def authorize_user

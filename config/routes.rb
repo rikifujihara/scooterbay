@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  get 'addresses/edit'
-  resources :offers, only: [:show, :edit, :update, :destroy]
+  resources :addresses, only: [:edit, :update, :destroy]
   get 'offers/offers_out'
   get 'offers/offers_in'
+  resources :offers, only: [:show, :edit, :update, :destroy]
   devise_for :users
   resources :users, only: [:destroy]
   resources :users, only: [:index, :show, :edit, :update] do
@@ -18,8 +18,8 @@ Rails.application.routes.draw do
   get 'listings/commuter'
   get 'listings/kids'
   get 'listings/foldable'
-  post 'listings/:id/order', to: 'listings#place_order', as: "place_order"
   post 'listings/:id/offer', to: 'listings#place_offer', as: "place_offer"
+  post 'listings/:id/address', to: 'listings#specify_address', as: "specify_address"
   resources :listings
   
 end
