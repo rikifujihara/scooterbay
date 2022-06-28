@@ -1,2 +1,24 @@
 <h1>My Watchlist</h1>
 
+<div class='container-fluid d-flex flex-wrap'>
+<% @watchlist.each do |watched_item| %>
+    <div class="card mx-2 my-2" style="width: 16rem;">
+    <% if watched_item.listing.picture.attached?%>
+    <%= image_tag watched_item.listing.picture %>
+    <% else %>
+    <%= image_tag "https://scooterbay-public-images.s3.ap-southeast-2.amazonaws.com/default_scooter.jpeg" %>
+    <% end %>
+    <div class="card-body">
+      <h5 class="card-title"><%=watched_item.listing.title%></h5>
+      <p class="card-text"><%=watched_item.listing.description%></p>
+      <% if !watched_item.listing.sold? %>
+      <%= link_to number_to_currency(watched_item.listing.price), watched_item.listing, class: "btn btn-primary"%>
+      <% else %>
+      <%= link_to "Sold", watched_item.listing, class: "btn btn-primary"%>
+      <% end %>
+    </div>
+    </div>
+<% end %>
+</div>
+
+<% console %>
