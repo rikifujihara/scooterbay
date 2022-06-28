@@ -13,7 +13,7 @@
 <% else %>
 <%= image_tag "https://scooterbay-public-images.s3.ap-southeast-2.amazonaws.com/default_scooter.jpeg" %>
 <% end %>
-<% if user_signed_in? %>
+<% if user_signed_in? && @listing.address?%>
   <p>Location: <%= format_address(@listing.address)%></p>
 <% else %>
   <p>Location: Please <%=link_to "log in", new_user_session_path %> to view location</p>
