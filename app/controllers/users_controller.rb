@@ -49,7 +49,8 @@ class UsersController < ApplicationController
     params.require(:user).permit(
       :bio,
       :first_name,
-      :avatar
+      :avatar,
+      :mobile
     )
   end
 end

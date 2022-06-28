@@ -44,6 +44,11 @@
     <%= form.text_area :bio %>
   </div>
 
+  <div class="field">
+    <%= form.label :mobile %>
+    <%= form.telephone_field :mobile %>
+  </div>
+
   <div class="actions">
     <%= form.submit class: 'btn btn-primary'%>
     <%= link_to "Go back", user_path(current_user), class: 'btn btn-secondary' %>
