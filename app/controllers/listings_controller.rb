@@ -26,13 +26,10 @@ class ListingsController < ApplicationController
     @listings = Listing.where(category_id: 4)
   end
   
-  def kids
-    @listings = Listing.where(category_id: 5)
+  def watchlist
+    @watchlist = WatchedItem.where(user_id: current_user.id)
   end
-  
-  def foldable
-    @listings = Listing.where(category_id: 6)
-  end
+
 
   # GET /listings/1 or /listings/1.json
   def show
