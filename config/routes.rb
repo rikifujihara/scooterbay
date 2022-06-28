@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :offers, only: [:show, :edit, :update, :destroy]
   devise_for :users
   resources :users, only: [:destroy]
+  get 'listings/watchlist'
   resources :watched_items, only: [:destroy]
   resources :users, only: [:index, :show, :edit, :update] do
     member do
