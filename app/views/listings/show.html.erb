@@ -15,7 +15,7 @@
 <% end %>
 <% if user_signed_in? && @listing.address%>
   <p>Location: <%= format_address(@listing.address)%></p>
-<% else %>
+<% elsif !user_signed_in? && @listing.address%>
   <p>Location: Please <%=link_to "log in", new_user_session_path %> to view location</p>
 <% end %>
 
