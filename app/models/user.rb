@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_one_attached :avatar, dependent: :destroy
   validates :avatar, content_type: [:png, :jpg, :jpeg]
+  validates :first_name, presence: true, format: {with: /[a-zA-Z]/, message: "Only alphabetical characters allowed for first name"}
 
   has_many :listings, dependent: :destroy
   has_many :watched_items, dependent: :destroy
