@@ -1,5 +1,10 @@
 <h1>Browse Scooters</h1>
 
+<form action="/search">
+  <input type="text" placeholder="Search by postcode" aria-label="Postcode-search">
+  <button type="submit">Search</button>
+</form>
+
 <div class='container-fluid d-flex flex-wrap'>
 <% @listings.each do |listing| %>
     <div class="card mx-2 my-2" style="width: 16rem;">

@@ -1,3 +1,5 @@
 <h1>Edit Address for your listing: "<%= @address.listing.title %>"</h1>
 
 <%= render 'form', address: @address %>
+
+<%= button_to "Remove Address", @address, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary"%>
