@@ -20,10 +20,11 @@ class OffersController < ApplicationController
   
     def destroy
       @offer = Offer.find(params[:id])
+      @tmp_listing = @offer.listing
       @offer.destroy
   
       respond_to do |format|
-        format.html { redirect_to user_path(current_user), notice: "Offer successfully removed." }
+        format.html { redirect_to @tmp_listing, notice: "Offer successfully removed." }
         format.json { head :no_content }
       end
     end
