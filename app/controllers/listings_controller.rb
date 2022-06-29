@@ -18,11 +18,11 @@ class ListingsController < ApplicationController
     @listings = Listing.where(category_id: 2)
   end
   
-  def fattyre
+  def commuter
     @listings = Listing.where(category_id: 3)
   end
   
-  def commuter
+  def kids
     @listings = Listing.where(category_id: 4)
   end
   
@@ -30,7 +30,13 @@ class ListingsController < ApplicationController
     @watchlist = WatchedItem.where(user_id: current_user.id)
   end
 
-
+  def search
+    @listings = []
+    @addresses = Address.where("suburb LIKE ?", "%" + params[:q] + "%")
+    @addresses.each do |address|
+      @listings << address.listing
+    end
+  end
   # GET /listings/1 or /listings/1.json
   def show
   end
