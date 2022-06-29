@@ -32,7 +32,7 @@ class ListingsController < ApplicationController
 
   def search
     @listings = []
-    @addresses = Address.where("suburb LIKE ?", "%" + params[:q] + "%")
+    @addresses = Address.where("postcode LIKE ?", "%" + params[:q] + "%")
     @addresses.each do |address|
       @listings << address.listing
     end
