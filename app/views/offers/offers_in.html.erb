@@ -14,7 +14,6 @@
         <p class="card-text"><%=offer.listing.description%></p>
         <h6 class="card-text">Price offered:<%=offer.price%></h6>
         <%= link_to "View Offer", offer, class: "btn btn-primary my-1"%>
-        <%= button_to "Remove Offer", offer, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-secondary"%>
       </div>
       </div>
   <% end %>
