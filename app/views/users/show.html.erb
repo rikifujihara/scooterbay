@@ -14,7 +14,10 @@
 
 <% if user_signed_in? %>
 <h4>Contact</h4>
-<p><%=@user.email%></p>
+<p>Email: <%=@user.email%></p>
+  <% if @user.mobile? %>
+  <p>Mobile: 0<%=@user.mobile%></p>
+  <% end %>
 <% end %>
 
 <% if current_user.admin? || current_user.id == @user.id %>
