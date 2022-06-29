@@ -46,7 +46,7 @@
 
   <div class="field">
     <%= form.label :mobile %>
-    <%= form.telephone_field :mobile %>
+    <%= form.telephone_field :mobile, minlength: 10, maxlength: 10 %>
   </div>
 
   <div class="actions">
