@@ -1,7 +1,7 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: %i[ show edit update destroy authorize_user place_order place_offer specify_address watch_item]
   before_action :set_offer, only: %i[ show ]
-  before_action :set_form_vars, only: %i[ new edit update]
+  before_action :set_form_vars, only: %i[ new edit update create ]
   before_action :authenticate_user!, except: %i[ index show ]
   before_action :authorize_user, only: %i[ edit update destroy ]
 
