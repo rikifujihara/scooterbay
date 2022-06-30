@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :postcode %>
-    <%= form.number_field :postcode %>
+    <%= form.number_field :postcode, minlength: 10, maxlength: 10%>
   </div>
 
   <div class="field">
