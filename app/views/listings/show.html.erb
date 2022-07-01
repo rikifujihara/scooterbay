@@ -46,7 +46,8 @@
 <%= button_to "Watch item", watch_item_path, class: 'btn btn-secondary mb-2' %>
 <% end %>
 
-
+<div class="container my-4">
+<h3>Specifications</h3>
 <p>
   <strong>Brand:</strong>
   <%= @listing.brand %>
@@ -77,7 +78,7 @@
   <strong>Has suspension:</strong>
   <span><%= @listing.has_suspension ? "✅" : "❌" %></span>
 </p>
-
+</div>
 <% if current_user && current_user == @listing.user || current_user && current_user.admin? %>
 <%= link_to 'Edit', edit_listing_path(@listing) %> |
 <%= link_to 'Delete', @listing, method: :delete, data: { confirm: 'Are you sure?' } %> |
@@ -112,6 +113,3 @@
 <% end %>
 
 <%= link_to 'Back', listings_path %>
-
-<% console %>
-
