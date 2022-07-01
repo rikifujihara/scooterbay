@@ -1,5 +1,5 @@
 class AddressesController < ApplicationController
-  before_action :set_address, only: %i[ show edit update destroy authorize_user]
+  before_action :set_address, only: %i[ show edit update destroy authorize_user ]
 
   def destroy
     @address = Address.find(params[:id])

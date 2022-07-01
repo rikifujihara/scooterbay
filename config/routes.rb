@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'search', to: 'listings#search'
-  resources :addresses, only: [:edit, :update, :destroy]
+  resources :addresses, only: [:edit, :update, :destroy ]
+  post 'listings/:id/address', to: 'listings#specify_address', as: "specify_address"
   get 'offers/offers_out'
   get 'offers/offers_in'
   resources :offers, only: [:show, :edit, :update, :destroy]
@@ -17,12 +18,9 @@ Rails.application.routes.draw do
   
   get 'listings/offroad'
   get 'listings/highspeed'
-  get 'listings/fattyre'
   get 'listings/commuter'
   get 'listings/kids'
-  get 'listings/foldable'
   post 'listings/:id/offer', to: 'listings#place_offer', as: "place_offer"
-  post 'listings/:id/address', to: 'listings#specify_address', as: "specify_address"
   post 'listings/:id/watched_item', to: 'listings#watch_item', as: "watch_item"
   resources :listings
   

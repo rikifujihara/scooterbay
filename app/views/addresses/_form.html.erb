@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :state %>
-    <%= form.text_field :state %>
+    <%= form.select :state, @states.map {|c| [c.name, c.id]} %>
   </div>
 
   <div class="field">
