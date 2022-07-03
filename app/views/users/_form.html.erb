@@ -15,10 +15,6 @@
     <% if user.avatar.attached? %>
       <%= image_tag user.avatar, class: 'avatar'%>
       <div>
-      <%= link_to "#" do %>
-        Replace Current Image
-      <% end %>
-      <span>|</span>
       <%= link_to "Remove Image",
                   delete_image_user_path(image_id: user.avatar.id),
                   method: :delete,
