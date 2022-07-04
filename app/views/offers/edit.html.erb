@@ -28,8 +28,9 @@
 <% else %>
 <%= image_tag "https://scooterbay-public-images.s3.ap-southeast-2.amazonaws.com/default-avatar.jpeg", class: 'avatar'%>
 <% end %>
-<h5>Name: <%= @offer.merchant.first_name %> </h5>
-<h5>Email: <%= @offer.merchant.email %> </h5>
+<h3><%= @offer.merchant.first_name %> </h3>
+<h5>Contact</h5>
+<p>Email: <%= @offer.merchant.email %> </p>
 <% if @offer.merchant.mobile? %>
-<h5> Mobile: <%= @offer.merchant.mobile %></h5>
+<p> Mobile: <%= @offer.merchant.mobile %></p>
 <% end %>
