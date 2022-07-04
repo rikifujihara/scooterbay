@@ -102,7 +102,9 @@
 <h5>Name: <%= @listing.user.first_name %> </h5>
 <h5>Contact:</h5>
 <p>Email: <%= @listing.user.email %> </p>
+  <% if @listing.user.mobile? %>
 <p>Mobile: <%= @listing.user.mobile %> </p>
+  <% end %>
 <% else %>
 <h2>Offers received</h2>
 <div class='container-fluid d-flex flex-wrap'>
