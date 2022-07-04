@@ -1,7 +1,6 @@
-<p>
-  <strong>Model:</strong>
-  <%= @listing.title %>
-</p>
+<h1>
+  Listing: "<%= @listing.title %>""
+</h1>
 
 <p>
   <strong>Category:</strong>
@@ -34,7 +33,7 @@
     <% else %>
     <%= link_to "Edit address", edit_address_path(@listing.address), class: 'btn btn-outline-secondary' %>
     <% end %>
-<%= link_to 'Delete Listing', @listing, class: 'btn btn-outline-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Delete Listing', @listing, class: 'btn btn-sm btn-outline-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>
 
 <% if current_user && @listing.user != current_user %>
