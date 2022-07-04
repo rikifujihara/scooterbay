@@ -22,16 +22,16 @@
 
 <% if current_user.admin? || current_user.id == @user.id %>
 <%= link_to "Edit Profile", edit_user_path(current_user), class: 'btn btn-primary' %>
-<%= link_to 'Delete Account', @user, class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Delete Account', @user, class: 'btn btn-outline-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>
 
 <% if current_user == @user %>
-<h2>My Listings</h1>
+<h1 class='my-3'>My Listings</h1>
 <% else %>
-<h2>Listings by <%=@user.first_name%></h1>
+<h1 class='my-3'>Listings by <%=@user.first_name%></h1>
 <% end %>
 
-<div class='container-fluid d-flex flex-wrap'>
+<div class='container-fluid d-flex flex-wrap my-5'>
 <% @user.listings.each do |listing| %>
     <div class="card mx-2 my-2" style="width: 16rem;">
     <% if listing.picture.attached?%>
@@ -42,13 +42,9 @@
     <div class="card-body">
       <h5 class="card-title"><%=listing.title%></h5>
       <p class="card-text"><%=listing.description%></p>
-      <% if !listing.sold? %>
       <%= link_to number_to_currency(listing.price), listing, class: "btn btn-primary"%>
-      <% else %>
-      <%= link_to "Sold", listing, class: "btn btn-primary"%>
-      <% end %>
       <% if listing.user == current_user || current_user.admin?%>
-      <%= link_to 'Delete Listing', listing, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to 'Delete Listing', listing, class: 'btn btn-outline-danger btn-sm', method: :delete, data: { confirm: 'Are you sure?' } %>
       <% end %>
     </div>
     </div>
@@ -56,5 +52,5 @@
 </div>
 
 <% if current_user == @user %>
-  <%= link_to 'New Listing', new_listing_path%>
+  <%= link_to 'New Listing', new_listing_path, class: 'btn btn-success'%>
 <% end %>
