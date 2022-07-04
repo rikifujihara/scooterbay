@@ -26,26 +26,32 @@
   </strong>
 </p>
 
-<% if current_user == @listing.user %>
-  <%= link_to "View my listings", user_path(current_user), class: 'btn btn-primary mb-2' %>
+<% if current_user && current_user == @listing.user %>
+    <%= link_to "View my listings", user_path(current_user), class: 'btn btn-primary mb-2' %>
     <% if !@listing.address %>
     <%= button_to "Add address for listing", specify_address_path, class: 'btn btn-secondary mb-2' %>
     <% else %>
     <%= link_to "Edit address", edit_address_path(@listing.address), class: 'btn btn-secondary mb-2' %>
     <% end %>
-<% elsif current_user && !user_made_offer? %>
-<%= button_to "Make offer", place_offer_path, class: 'btn btn-primary mb-2' %>
-<% else %>
-  <% if current_user %>
-  <%= link_to "View Offer", offer_path(@offer), class: 'btn btn-primary mb-2' %>
-  <% end %>
 <% end %>
-<% if @listing.user != current_user %>
+
+<% if current_user && @listing.user != current_user %>
   <% if item_watched? %>
   <%= button_to "Unwatch item", watched_item_url, method: :delete, class: "btn btn-primary"%>
   <% else %>
   <%= button_to "Watch item", watch_item_path, class: 'btn btn-secondary mb-2' %>
   <% end %>
+
+  <% if !user_made_offer? %>
+  <%= button_to "Make offer", place_offer_path, class: 'btn btn-primary mb-2' %>
+  <% else %>
+  <%= link_to "View Offer", offer_path(@offer), class: 'btn btn-primary mb-2' %>
+  <% end %>
+<% end %>
+
+<% if !current_user %>
+  <%= button_to "Make offer", place_offer_path, class: 'btn btn-primary mb-2' %>
+  <%= button_to "Watch item", watch_item_path, class: 'btn btn-secondary mb-2' %>
 <% end %>
 
 <div class="container my-4">
