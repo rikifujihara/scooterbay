@@ -36,6 +36,7 @@
 </div>
 
 <% if current_user && @listing.user != current_user %>
+  <div class='container'>
   <% if item_watched? %>
   <%= button_to "Unwatch item", watched_item_url, method: :delete, class: "btn btn-primary"%>
   <% else %>
@@ -47,6 +48,7 @@
   <% else %>
   <%= link_to "View Offer", offer_path(@offer), class: 'btn btn-primary mb-2' %>
   <% end %>
+  </div>
 <% end %>
 
 <% if !current_user %>
@@ -93,6 +95,9 @@
 <% end %>
 
 <% unless @listing.user == current_user %>
+<div class='container'>
+<div class="card my-2" style="width: 16rem;">
+  <div class="card-body">
 <h2>Merchant Details</h2>
   <% if @listing.user.avatar.attached? %>
   <%= image_tag @listing.user.avatar, class: 'avatar'%>
@@ -105,6 +110,9 @@
   <% if @listing.user.mobile? %>
 <p>Mobile: <%= @listing.user.mobile %> </p>
   <% end %>
+    </div>
+  </div>
+</div>
 <% else %>
   <% if @listing.offers.count > 0 %>
   <h2 class='py-3'>Offers received</h2>
