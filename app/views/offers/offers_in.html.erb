@@ -12,7 +12,10 @@
       <div class="card-body">
         <h5 class="card-title"><%=offer.listing.title%></h5>
         <p class="card-text"><%=offer.listing.description%></p>
-        <h6 class="card-text">Price offered:<%=offer.price%></h6>
+        <h5 class="card-title">From <%=offer.offerer.first_name%></h5>
+        <h6 class="card-text">Price offered: <%=number_to_currency(offer.price)%></h6>
+        <p class="card-subtitle text-muted"><%= link_to offer.offerer.username, offer.offerer%></p>
+        <p class="card-text"><%=offer.message%></p>
         <%= link_to "View Offer", offer, class: "btn btn-primary my-1"%>
       </div>
       </div>
