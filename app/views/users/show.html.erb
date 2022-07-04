@@ -21,7 +21,7 @@
 <% end %>
 
 <% if current_user.admin? || current_user.id == @user.id %>
-<%= link_to "Edit Profile", edit_user_path(current_user), class: 'btn btn-primary' %>
+<%= link_to "Edit Profile", edit_user_path(@user), class: 'btn btn-primary' %>
 <%= link_to 'Delete Account', @user, class: 'btn btn-outline-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>
 
