@@ -30,10 +30,10 @@
 <p class="text-muted">Offer made <%= time_ago_in_words(@offer.created_at) %> ago</p>
 
 <% if current_user && current_user == @offer.offerer %>
-<p><%= link_to "Edit Offer", edit_offer_path %></p>
+<p><%= link_to "Edit Offer", edit_offer_path, class: 'btn btn-primary'%></p>
 <% end %>
 
-<%= link_to "View Listing", @offer.listing, class: 'btn btn-primary mb-2' %>
+<%= link_to "View Listing", @offer.listing, class: 'btn btn-secondary mb-2' %>
 
 <% if current_user && current_user == @offer.merchant %>
   <h2>Buyer Details</h2>
