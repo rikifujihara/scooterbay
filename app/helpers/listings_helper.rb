@@ -4,7 +4,9 @@ module ListingsHelper
     end
 
     def item_watched?
+        if current_user
         WatchedItem.find_by(listing_id: @listing.id, user_id: current_user.id)
+        end
     end
 
     def format_address(address)
