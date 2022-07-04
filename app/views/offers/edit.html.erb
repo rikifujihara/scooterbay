@@ -20,18 +20,22 @@
   </strong>
 </p>
 
-
-<h2>Merchant Details</h2>
-<% if @offer.merchant.avatar.attached? %>
-<%= image_tag @offer.merchant.avatar, class: 'avatar'%>
-<% else %>
-<%= image_tag "https://scooterbay-public-images.s3.ap-southeast-2.amazonaws.com/default-avatar.jpeg", class: 'avatar'%>
-<% end %>
-<h3><%= @offer.merchant.first_name %> </h3>
-<h5>Contact</h5>
-<p>Email: <%= @offer.merchant.email %> </p>
-<% if @offer.merchant.mobile? %>
-<p> Mobile: <%= @offer.merchant.mobile %></p>
-<% end %>
+<div class="card my-2" style="width: 16rem;">
+  <div class="card-body">
+    <h2>Merchant Details</h2>
+    <% if @offer.merchant.avatar.attached? %>
+    <%= image_tag @offer.merchant.avatar, class: 'avatar'%>
+    <% else %>
+    <%= image_tag "https://scooterbay-public-images.s3.ap-southeast-2.amazonaws.com/default-avatar.jpeg", class: 'avatar'%>
+    <% end %>
+    <h3><%= @offer.merchant.first_name %> </h3>
+    <p class="card-subtitle text-muted"><%= link_to @offer.merchant.username, @offer.merchant %> </p>
+    <h5>Contact</h5>
+    <p>Email: <%= @offer.merchant.email %> </p>
+    <% if @offer.merchant.mobile? %>
+    <p> Mobile: <%= @offer.merchant.mobile %></p>
+    <% end %>
+  </div>
+</div>
 
 <%= link_to 'Back', @offer, class: 'btn btn-light' %>
