@@ -38,7 +38,7 @@
 <% if current_user && @listing.user != current_user %>
   <div class='container'>
   <% if item_watched? %>
-  <%= button_to "Unwatch item", watched_item_url, method: :delete, class: "btn btn-primary"%>
+  <%= button_to "Unwatch item", watched_item_url, method: :delete, class: "btn btn-outline-secondary mb-2"%>
   <% else %>
   <%= button_to "Watch item", watch_item_path, class: 'btn btn-secondary mb-2' %>
   <% end %>
@@ -96,43 +96,48 @@
     <%= link_to "View my listings", user_path(current_user), class: 'btn btn-primary mb-2' %>
 <% end %>
 
-<% unless @listing.user == current_user %>
-<div class='container'>
-<div class="card my-2" style="width: 16rem;">
-  <div class="card-body">
-<h2>Merchant Details</h2>
-  <% if @listing.user.avatar.attached? %>
-  <%= image_tag @listing.user.avatar, class: 'avatar'%>
-  <% else %>
-  <%= image_tag "https://scooterbay-public-images.s3.ap-southeast-2.amazonaws.com/default-avatar.jpeg", class: 'avatar'%>
-  <% end %>
-<h3><%= @listing.user.first_name %> </h3>
-<p class="card-subtitle text-muted"><%= link_to @listing.user.username, @listing.user %></p>
-<h5>Contact</h5>
-<p>Email: <%= @listing.user.email %> </p>
-  <% if @listing.user.mobile? %>
-<p>Mobile: <%= @listing.user.mobile %> </p>
-  <% end %>
-    </div>
-  </div>
-</div>
-<% else %>
-  <% if @listing.offers.count > 0 %>
-  <h2 class='py-3'>Offers received</h2>
-  <div class='container-fluid d-flex flex-wrap'>
-  <% @listing.offers.each do |offer| %>
-      <div class="card mx-2 my-2" style="width: 16rem;">
+<% if current_user && current_user != @listing.user%>
+    <div class='container'>
+    <div class="card my-2" style="width: 16rem;">
       <div class="card-body">
-        <h5 class="card-title">From <%=offer.offerer.first_name%></h5>
-        <p class="card-subtitle text-muted"><%= link_to offer.offerer.username, offer.offerer%></p>
-        <p class="card-text"><%=offer.message%></p>
-        <h6 class="card-text">Price offered:<%=number_to_currency(offer.price)%></h6>
-        <%= link_to "View Offer", offer, class: "btn btn-primary my-1"%>
-      </div>
-      </div>
+    <h2>Merchant Details</h2>
+      <% if @listing.user.avatar.attached? %>
+      <%= image_tag @listing.user.avatar, class: 'avatar'%>
+      <% else %>
+      <%= image_tag "https://scooterbay-public-images.s3.ap-southeast-2.amazonaws.com/default-avatar.jpeg", class: 'avatar'%>
       <% end %>
-  </div>
+    <h3><%= @listing.user.first_name %> </h3>
+    <p class="card-subtitle text-muted"><%= link_to @listing.user.username, @listing.user %></p>
+    <h5>Contact</h5>
+    <p>Email: <%= @listing.user.email %> </p>
+      <% if @listing.user.mobile? %>
+    <p>Mobile: <%= @listing.user.mobile %> </p>
+      <% end %>
+        </div>
+      </div>
+    </div>
+<% elsif current_user == @listing.user%>
+      <% if @listing.offers.count > 0 %>
+      <h2 class='py-3'>Offers received</h2>
+      <div class='container-fluid d-flex flex-wrap'>
+      <% @listing.offers.each do |offer| %>
+          <div class="card mx-2 my-2" style="width: 16rem;">
+          <div class="card-body">
+            <h5 class="card-title">From <%=offer.offerer.first_name%></h5>
+            <p class="card-subtitle text-muted"><%= link_to offer.offerer.username, offer.offerer%></p>
+            <p class="card-text"><%=offer.message%></p>
+            <h6 class="card-text">Price offered:<%=number_to_currency(offer.price)%></h6>
+            <%= link_to "View Offer", offer, class: "btn btn-primary my-1"%>
+          </div>
+          </div>
+      <% end %>
+      </div>
+      <% else %>
+      <h2 class='py-3'>This listing hasn't received any offers yet.</h2>
+      <% end %>
   <% else %>
-  <h2 class='py-3'>This listing hasn't received any offers yet.</h2>
-  <% end %>
+  <div class='container'>
+  <h2> Merchant details</h2>
+  <p> Please log in to view merchant's contact details.</p>
+  </div>
 <% end %>
