@@ -42,8 +42,8 @@
   <% else %>
   <%= image_tag "https://scooterbay-public-images.s3.ap-southeast-2.amazonaws.com/default-avatar.jpeg", class: 'avatar'%>
   <% end %>
-  <h5>Name: <%= @offer.offerer.first_name %> </h5>
-  <h5>Contact:</h5>
+  <h3><%= @offer.offerer.first_name %> </h3>
+  <h5>Contact</h5>
   <p>Email: <%= @offer.offerer.email %> </p>
   <% if @offer.offerer.mobile? %>
   <p>Mobile: <%= @offer.offerer.mobile %> </p>
@@ -55,7 +55,8 @@
   <% else %>
   <%= image_tag "https://scooterbay-public-images.s3.ap-southeast-2.amazonaws.com/default-avatar.jpeg", class: 'avatar'%>
   <% end %>
-  <h5>Contact:</h5>
+  <h3><%= @offer.merchant.first_name %></h3>
+  <h5>Contact</h5>
   <p>Email: <%= @offer.merchant.email %> </p>
   <% if @offer.merchant.mobile? %>
   <p>Mobile: <%= @offer.merchant.mobile %> </p>
