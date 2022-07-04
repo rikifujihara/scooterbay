@@ -26,13 +26,15 @@
   </strong>
 </p>
 
-<% if current_user && current_user == @listing.user %>
-    <%= link_to "View my listings", user_path(current_user), class: 'btn btn-primary mb-2' %>
+
+<% if current_user && current_user == @listing.user || current_user && current_user.admin? %>
+<%= link_to 'Edit Listing', edit_listing_path(@listing), class: 'btn btn-secondary' %>
     <% if !@listing.address %>
-    <%= button_to "Add address for listing", specify_address_path, class: 'btn btn-secondary mb-2' %>
+    <%= button_to "Add address for listing", specify_address_path, class: 'btn btn-outline-secondary' %>
     <% else %>
-    <%= link_to "Edit address", edit_address_path(@listing.address), class: 'btn btn-secondary mb-2' %>
+    <%= link_to "Edit address", edit_address_path(@listing.address), class: 'btn btn-outline-secondary' %>
     <% end %>
+<%= link_to 'Delete Listing', @listing, class: 'btn btn-outline-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>
 
 <% if current_user && @listing.user != current_user %>
@@ -87,9 +89,9 @@
   <span><%= @listing.has_suspension ? "✅" : "❌" %></span>
 </p>
 </div>
-<% if current_user && current_user == @listing.user || current_user && current_user.admin? %>
-<%= link_to 'Edit', edit_listing_path(@listing) %> |
-<%= link_to 'Delete', @listing, method: :delete, data: { confirm: 'Are you sure?' } %> |
+
+<% if current_user && current_user == @listing.user %>
+    <%= link_to "View my listings", user_path(current_user), class: 'btn btn-primary mb-2' %>
 <% end %>
 
 <% unless @listing.user == current_user %>
@@ -106,8 +108,9 @@
 <p>Mobile: <%= @listing.user.mobile %> </p>
   <% end %>
 <% else %>
-<h2>Offers received</h2>
-<div class='container-fluid d-flex flex-wrap'>
+  <% if @listing.offers.count > 0 %>
+  <h2 class='py-3'>Offers received</h2>
+  <div class='container-fluid d-flex flex-wrap'>
   <% @listing.offers.each do |offer| %>
       <div class="card mx-2 my-2" style="width: 16rem;">
       <div class="card-body">
@@ -118,6 +121,9 @@
         <%= link_to "View Offer", offer, class: "btn btn-primary my-1"%>
       </div>
       </div>
-  <% end %>
+      <% end %>
   </div>
+  <% else %>
+  <h2 class='py-3'>This listing hasn't received any offers yet.</h2>
+  <% end %>
 <% end %>
