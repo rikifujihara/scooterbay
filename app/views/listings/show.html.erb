@@ -107,6 +107,7 @@
   <%= image_tag "https://scooterbay-public-images.s3.ap-southeast-2.amazonaws.com/default-avatar.jpeg", class: 'avatar'%>
   <% end %>
 <h3><%= @listing.user.first_name %> </h3>
+<p class="card-subtitle text-muted"><%= link_to @listing.user.username, @listing.user %></p>
 <h5>Contact</h5>
 <p>Email: <%= @listing.user.email %> </p>
   <% if @listing.user.mobile? %>
