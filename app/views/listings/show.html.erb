@@ -1,5 +1,5 @@
 <h1>
-  Listing: "<%= @listing.title %>""
+  Listing: "<%= @listing.title %>"
 </h1>
 
 <h4>
@@ -29,7 +29,7 @@
       <% if !@listing.address %>
       <%= button_to "Add address", specify_address_path, class: 'btn btn-outline-secondary mx-1' %>
       <% else %>
-      <%= link_to "Edit address", edit_address_path(@listing.address), class: 'btn btn-outline-secondary' %>
+      <%= link_to "Edit address", edit_address_path(@listing.address), class: 'btn btn-outline-secondary mx-1' %>
       <% end %>
   <%= link_to 'Delete Listing', @listing, class: 'btn btn-outline-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
   <% end %>
@@ -123,7 +123,7 @@
         <h5 class="card-title">From <%=offer.offerer.first_name%></h5>
         <p class="card-subtitle text-muted"><%= link_to offer.offerer.username, offer.offerer%></p>
         <p class="card-text"><%=offer.message%></p>
-        <h6 class="card-text">Price offered:<%=offer.price%></h6>
+        <h6 class="card-text">Price offered:<%=number_to_currency(offer.price)%></h6>
         <%= link_to "View Offer", offer, class: "btn btn-primary my-1"%>
       </div>
       </div>
