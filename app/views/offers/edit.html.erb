@@ -30,3 +30,6 @@
 <% end %>
 <h5>Name: <%= @offer.merchant.first_name %> </h5>
 <h5>Email: <%= @offer.merchant.email %> </h5>
+<% if @offer.merchant.mobile? %>
+<h5> Mobile: <%= @offer.merchant.mobile %></h5>
+<% end %>
