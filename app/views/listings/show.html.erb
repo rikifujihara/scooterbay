@@ -52,8 +52,10 @@
 <% end %>
 
 <% if !current_user %>
+  <div class='container'>
   <%= button_to "Make offer", place_offer_path, class: 'btn btn-primary mb-2' %>
   <%= button_to "Watch item", watch_item_path, class: 'btn btn-secondary mb-2' %>
+  </div>
 <% end %>
 
 <div class="container my-4">
