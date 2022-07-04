@@ -2,39 +2,38 @@
   Listing: "<%= @listing.title %>""
 </h1>
 
-<p>
-  <strong>Category:</strong>
-  <%= @listing.category.name %>
-</p>
+<h4>
+  <%= @listing.category.name %> Scooter
+</h4>
 
 <% if @listing.picture.attached?%>
 <%= image_tag @listing.picture, alt: @listing.title  %>
 <% else %>
 <%= image_tag "https://scooterbay-public-images.s3.ap-southeast-2.amazonaws.com/default_scooter.jpeg" %>
 <% end %>
+
 <% if user_signed_in? && @listing.address%>
   <p>Location: <%= format_address(@listing.address)%></p>
 <% elsif !user_signed_in? && @listing.address%>
   <p>Location: Please <%=link_to "log in", new_user_session_path %> to view location</p>
 <% end %>
 
-<p class="mt-2">
-  Price:
-  <strong>
+<h2 class="my-3">
   <%= number_to_currency(@listing.price) %>
-  </strong>
-</p>
+</h2>
 
 
 <% if current_user && current_user == @listing.user || current_user && current_user.admin? %>
-<%= link_to 'Edit Listing', edit_listing_path(@listing), class: 'btn btn-secondary' %>
-    <% if !@listing.address %>
-    <%= button_to "Add address for listing", specify_address_path, class: 'btn btn-outline-secondary' %>
-    <% else %>
-    <%= link_to "Edit address", edit_address_path(@listing.address), class: 'btn btn-outline-secondary' %>
-    <% end %>
-<%= link_to 'Delete Listing', @listing, class: 'btn btn-sm btn-outline-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %>
+<div class='container-fluid d-flex flex-wrap'>
+  <%= link_to 'Edit Listing', edit_listing_path(@listing), class: 'btn btn-secondary' %>
+      <% if !@listing.address %>
+      <%= button_to "Add address", specify_address_path, class: 'btn btn-outline-secondary mx-1' %>
+      <% else %>
+      <%= link_to "Edit address", edit_address_path(@listing.address), class: 'btn btn-outline-secondary' %>
+      <% end %>
+  <%= link_to 'Delete Listing', @listing, class: 'btn btn-outline-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+</div>
 
 <% if current_user && @listing.user != current_user %>
   <% if item_watched? %>

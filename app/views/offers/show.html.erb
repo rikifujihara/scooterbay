@@ -36,29 +36,39 @@
 <%= link_to "View Listing", @offer.listing, class: 'btn btn-secondary mb-2' %>
 
 <% if current_user && current_user == @offer.merchant %>
-  <h2>Buyer Details</h2>
-  <% if @offer.offerer.avatar.attached? %>
-  <%= image_tag @offer.offerer.avatar, class: 'avatar'%>
-  <% else %>
-  <%= image_tag "https://scooterbay-public-images.s3.ap-southeast-2.amazonaws.com/default-avatar.jpeg", class: 'avatar'%>
-  <% end %>
-  <h3><%= @offer.offerer.first_name %> </h3>
-  <h5>Contact</h5>
-  <p>Email: <%= @offer.offerer.email %> </p>
-  <% if @offer.offerer.mobile? %>
-  <p>Mobile: <%= @offer.offerer.mobile %> </p>
-  <% end %>
+  <div class="card my-2" style="width: 16rem;">
+    <div class="card-body">
+      <h2>Buyer Details</h2>
+      <% if @offer.offerer.avatar.attached? %>
+      <%= image_tag @offer.offerer.avatar, class: 'avatar'%>
+      <% else %>
+      <%= image_tag "https://scooterbay-public-images.s3.ap-southeast-2.amazonaws.com/default-avatar.jpeg", class: 'avatar'%>
+      <% end %>
+      <h3><%= @offer.offerer.first_name %> </h3>
+      <p class="card-subtitle text-muted"><%= link_to @offer.offerer.username, @offer.offerer%></p>
+      <h5>Contact</h5>
+      <p>Email: <%= @offer.offerer.email %> </p>
+      <% if @offer.offerer.mobile? %>
+      <p>Mobile: <%= @offer.offerer.mobile %> </p>
+      <% end %>
+      </div>
+  </div>
 <% elsif current_user && current_user == @offer.offerer %>
-  <h2>Merchant Details</h2>
-  <% if @offer.merchant.avatar.attached? %>
-  <%= image_tag @offer.merchant.avatar, class: 'avatar'%>
-  <% else %>
-  <%= image_tag "https://scooterbay-public-images.s3.ap-southeast-2.amazonaws.com/default-avatar.jpeg", class: 'avatar'%>
-  <% end %>
-  <h3><%= @offer.merchant.first_name %></h3>
-  <h5>Contact</h5>
-  <p>Email: <%= @offer.merchant.email %> </p>
-  <% if @offer.merchant.mobile? %>
-  <p>Mobile: <%= @offer.merchant.mobile %> </p>
-  <% end %>
-<% end %>
+  <div class="card my-2" style="width: 16rem;">
+    <div class="card-body">
+      <h2>Merchant Details</h2>
+      <% if @offer.merchant.avatar.attached? %>
+      <%= image_tag @offer.merchant.avatar, class: 'avatar'%>
+      <% else %>
+      <%= image_tag "https://scooterbay-public-images.s3.ap-southeast-2.amazonaws.com/default-avatar.jpeg", class: 'avatar'%>
+      <% end %>
+      <h3><%= @offer.merchant.first_name %></h3>
+      <p class="card-subtitle text-muted"><%= link_to @offer.merchant.username, @offer.merchant%></p>
+      <h5>Contact</h5>
+      <p>Email: <%= @offer.merchant.email %> </p>
+        <% if @offer.merchant.mobile? %>
+        <p>Mobile: <%= @offer.merchant.mobile %> </p>
+        <% end %>
+      <% end %>  
+    </div>
+  </div>
