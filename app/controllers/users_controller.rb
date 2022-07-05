@@ -2,14 +2,17 @@ class UsersController < ApplicationController
   before_action :authenticate_user!  
 
   def index
+    # This query was implemented to retreive every instance of the User model
     @users = User.all
   end
 
   def show
+    # This query was implemented to find the instance of the User model with the same :id parameter
     @user = User.find(params[:id])
   end
 
   def edit
+    # This query uses devise's current_user helper method to assign the instance of the User model which is currently logged in to the @user variable
     @user = current_user
   end
 
@@ -34,7 +37,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    # This query was implemented to find the instance of the User model with the same :id parameter
     @user = User.find(params[:id])
+    # This query destroys the instance of the User model which was just assigned to the @user variable
     @user.destroy
 
     respond_to do |format|
