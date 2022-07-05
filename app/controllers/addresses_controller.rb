@@ -2,8 +2,11 @@ class AddressesController < ApplicationController
   before_action :set_address, only: %i[ show edit update destroy authorize_user ]
 
   def destroy
+    # This query was implemented to find the instance of the Address model with the same :id parameter
     @address = Address.find(params[:id])
+    # This query finds the instance of the Listing model that the set @address belongs to
     @tmp_listing = @address.listing
+    # This query deletes the set @address from the database
     @address.destroy
 
     respond_to do |format|
@@ -13,6 +16,7 @@ class AddressesController < ApplicationController
   end
 
   def new
+      #This query sets up a new instance of the Address model without saving it.
       @address = Address.new
   end
 
@@ -33,14 +37,8 @@ class AddressesController < ApplicationController
 
 private
 
-  # def authorize_user
-  #   if !current_user.admin && (current_user != @offer.merchant && current_user != @offer.offerer)
-  #     flash[:alert] = "Access denied"
-  #     redirect_to listings_path
-  #   end
-  # end
-
   def set_address
+      # This query was implemented to find the instance of the Address model with the same :id parameter
       @address = Address.find(params[:id])
   end
 
