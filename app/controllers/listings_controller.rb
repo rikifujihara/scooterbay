@@ -50,7 +50,7 @@ class ListingsController < ApplicationController
 
   # GET /listings/new
   def new
-    #This query sets up a new Listing without saving it.
+    #This query sets up a new instance of the Listing model without saving it.
     @listing = Listing.new
   end
 
