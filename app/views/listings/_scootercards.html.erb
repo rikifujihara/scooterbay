@@ -1,15 +1,21 @@
 <div class='container-fluid d-flex flex-wrap'>
 <% @listings.each do |listing| %>
     <div class="card mx-2 my-2" style="width: 16rem;">
+    <!-- This query selects the referenced 'picture' instance of the activestorage attachment the current instance of the Listing model within the @listing array has through the has_one_attached relationship. It then retrieves the returned boolean attribute from the activerecord helper method 'attached?'.-->
     <% if listing.picture.attached?%>
+    <!-- This query selects the referenced 'picture' instance of the activestorage attachment the current instance of the Listing model within the @listing array has through the has_one_attached relationship.-->
     <%= image_tag listing.picture %>
     <% else %>
     <%= image_tag "https://scooterbay-public-images.s3.ap-southeast-2.amazonaws.com/default_scooter.jpeg" %>
     <% end %>
     <div class="card-body">
+    <!-- This query selects the 'title' attribute of the current instance of the Listing model within the @listing array-->
       <h5 class="card-title"><%=listing.title%></h5>
+    <!-- This query selects the 'description' attribute of the current instance of the Listing model within the @listing array-->
       <p class="card-text"><%=listing.description%></p>
+    <!-- This query retrieves the 'sold?' boolean attribute of the current instance of the Listing model within the @listing array-->
       <% if !listing.sold? %>
+    <!-- This query selects the 'price' attribute of the current instance of the Listing model within the @listing array-->
       <%= link_to number_to_currency(listing.price), listing, class: "btn btn-primary"%>
       <% else %>
       <%= link_to "Sold", listing, class: "btn btn-primary"%>
