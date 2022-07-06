@@ -1,17 +1,21 @@
 <h1>
+  <!--This query selects the 'title' attribute of the set Listing model instance. -->
   Listing: "<%= @listing.title %>"
 </h1>
 
 <h4>
+  <!--This query selects the 'name' attribute of the referenced (via 'belongs_to') Category instance of the set Listing. -->
   <%= @listing.category.name %> Scooter
 </h4>
-
+<!-- This query selects the referenced 'picture' instance of the activestorage attachment the current instance of the Listing model has through the has_one_attached relationship. It then retrieves the returned boolean attribute from the activerecord helper method 'attached?'.-->
 <% if @listing.picture.attached?%>
+<!-- This query selects the referenced 'picture' instance of the activestorage attachment the current instance of the Listing model has through the has_one_attached relationship.-->
 <%= image_tag @listing.picture, alt: @listing.title  %>
 <% else %>
 <%= image_tag "https://scooterbay-public-images.s3.ap-southeast-2.amazonaws.com/default_scooter.jpeg" %>
 <% end %>
 
+<!-- This query retrieves the 'address' attribute of the current Listing instance -->
 <% if user_signed_in? && @listing.address%>
   <p>Location: <%= format_address(@listing.address)%></p>
 <% elsif !user_signed_in? && @listing.address%>
@@ -19,10 +23,11 @@
 <% end %>
 
 <h2 class="my-3">
+<!-- This query retrieves the 'price' attribute of the current Listing instance -->
   <%= number_to_currency(@listing.price) %>
 </h2>
 
-
+<!-- This query retrieves the referenced User instance of the current Listing instance via the belongs_to relationship -->
 <% if current_user && current_user == @listing.user || current_user && current_user.admin? %>
 <div class='container-fluid d-flex flex-wrap'>
   <%= link_to 'Edit Listing', edit_listing_path(@listing), class: 'btn btn-secondary' %>
@@ -35,6 +40,7 @@
   <% end %>
 </div>
 
+<!-- This query retrieves the referenced User instance of the current Listing instance via the belongs_to relationship -->
 <% if current_user && @listing.user != current_user %>
   <div class='container'>
   <% if item_watched? %>
@@ -68,26 +74,31 @@
 
 <p>
   <strong>Description:</strong>
+  <!-- This query retrieves the 'description' attribute of the current Listing instance -->
   <%= @listing.description %>
 </p>
 
 <p>
   <strong>In built lighting:</strong>
+  <!-- This query retrieves the 'in_built_lighting' boolean attribute of the current Listing instance -->
   <span><%= @listing.in_built_lighting ? "✅" : "❌" %></span>
 </p>
 
 <p>
   <strong>Double motor:</strong>
+  <!-- This query retrieves the 'double_motor' boolean attribute of the current Listing instance -->
   <span><%= @listing.double_motor ? "✅" : "❌" %></span>
 </p>
 
 <p>
   <strong>Pneumatic tires:</strong>
+  <!-- This query retrieves the 'pneumatic_tires' boolean attribute of the current Listing instance -->
   <span><%= @listing.pneumatic_tires ? "✅" : "❌" %></span>
 </p>
 
 <p>
   <strong>Has suspension:</strong>
+  <!-- This query retrieves the 'has_suspension' boolean attribute of the current Listing instance -->
   <span><%= @listing.has_suspension ? "✅" : "❌" %></span>
 </p>
 </div>
@@ -101,31 +112,42 @@
     <div class="card my-2" style="width: 16rem;">
       <div class="card-body">
     <h2>Merchant Details</h2>
+    <!-- This query selects the referenced 'avatar' instance of the activestorage attachment the current instance of the User model has through the has_one_attached relationship. It then retrieves the returned boolean attribute from the activerecord helper method 'attached?'.-->
       <% if @listing.user.avatar.attached? %>
+      <!-- This query selects the referenced 'avatar' instance of the activestorage attachment the current instance of the User model has through the has_one_attached relationship.-->
       <%= image_tag @listing.user.avatar, class: 'avatar'%>
       <% else %>
       <%= image_tag "https://scooterbay-public-images.s3.ap-southeast-2.amazonaws.com/default-avatar.jpeg", class: 'avatar'%>
       <% end %>
+      <!-- This query selects 'first_name' attribute of current Listing's referenced user -->
     <h3><%= @listing.user.first_name %> </h3>
+    <!-- This query selects 'username' attribute of current Listing's referenced user -->
     <p class="card-subtitle text-muted"><%= link_to @listing.user.username, @listing.user %></p>
     <h5>Contact</h5>
+    <!-- This query selects 'email' attribute of current Listing's referenced user -->
     <p>Email: <%= @listing.user.email %> </p>
       <% if @listing.user.mobile? %>
+      <!-- This query selects 'mobile' attribute of current Listing's referenced user -->
     <p>Mobile: <%= @listing.user.mobile %> </p>
       <% end %>
         </div>
       </div>
     </div>
 <% elsif current_user == @listing.user%>
+      <!-- This query selects the Offer instances belonging to the current Listing instance via the has_many relationship -->
       <% if @listing.offers.count > 0 %>
       <h2 class='py-3'>Offers received</h2>
       <div class='container-fluid d-flex flex-wrap'>
       <% @listing.offers.each do |offer| %>
           <div class="card mx-2 my-2" style="width: 16rem;">
           <div class="card-body">
+            <!-- This query selects the 'first_name' attribute of the Offer's referenced Offerer instance (a User) through the belongs_to relationship -->
             <h5 class="card-title">From <%=offer.offerer.first_name%></h5>
+            <!-- This query selects the 'username' attribute of the Offer's referenced Offerer instance (a User) through the belongs_to relationship -->
             <p class="card-subtitle text-muted"><%= link_to offer.offerer.username, offer.offerer%></p>
+            <!-- This query selects the 'message' attribute of the Offer instance -->
             <p class="card-text"><%=offer.message%></p>
+            <!-- This query selects the 'price' attribute of the Offer instance -->
             <h6 class="card-text">Price offered:<%=number_to_currency(offer.price)%></h6>
             <%= link_to "View Offer", offer, class: "btn btn-primary my-1"%>
           </div>
