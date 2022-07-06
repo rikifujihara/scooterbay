@@ -34,6 +34,11 @@ class ListingsController < ApplicationController
   def watchlist
     # This query finds each instance of the WatchedItem model where it's foreign key, "user_id" is the same as the id of the current user. Each watcheditem instance references a listing and a user, so by retrieving the watched items where the user_id is the current user's, all items that the current user is watching are retrieved.
     @watchlist = WatchedItem.where(user_id: current_user.id)
+    @listings = []
+    @watchlist.each do |item|
+      # This query selects the instance of the Listing model that the current WatchedItem references via the belongs_to relationship.
+    @listings << item.listing
+   end
   end
 
   def search
