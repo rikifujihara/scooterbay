@@ -1,24 +1,55 @@
-# README
+# ScooterBay - Two Sided Marketplace Application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## The problem ScooterBay solves
+fsdfsdf
 
-Things you may want to cover:
+## Why it's a problem that needs solving
+fewf
 
-* Ruby version
+### link to GitHub repo <a link='#'>here</a>
 
-* System dependencies
+## Description of ScooterBay
 
-* Configuration
+### Purpose
 
-* Database creation
+### Functionality/features
 
-* Database initialization
+### Sitemap
 
-* How to run the test suite
+### Screenshots
 
-* Services (job queues, cache servers, search engines, etc.)
+### Target Audience
 
-* Deployment instructions
+### Tech Stack
 
-* ...
+## User Stories
+
+## Wireframes
+
+## ERD
+
+## High Level Abstractions
+
+## Third party services
+### Devise
+### Bootstrap
+
+## High Level Components (Abstractions)
+### MVC architecture and inheritance
+What is MVC?:
+
+Explain the concept of inheritance:
+
+How inheritance takes place in a rails application:
+
+How does the above link in with MVC?
+
+## Model relations
+"has_one", or "has_many", etc
+
+## Database relations
+0 or 1 etc, one to many etc
+
+## Database Schema design
+
+## How tasks are allocated and tracked in the project
