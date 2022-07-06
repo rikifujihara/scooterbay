@@ -1,3 +1,4 @@
+<!-- (@address.listing.title) this query finds the Address model instance's referenced listing that it has through the 'belongs_to' relationship, then finds the value of the 'title' attribute of that Listing instance.-->
 <h1>Edit Address for your listing: "<%= @address.listing.title %>"</h1>
 
 <%= render 'form', address: @address %>
