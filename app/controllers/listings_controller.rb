@@ -36,7 +36,7 @@ class ListingsController < ApplicationController
     @watchlist = WatchedItem.where(user_id: current_user.id)
     @listings = []
     @watchlist.each do |item|
-      # This query selects the instance of the Listing model that the current WatchedItem references via the belongs_to relationship.
+    # This query selects the instance of the Listing model that the current WatchedItem references via the belongs_to relationship.
     @listings << item.listing
    end
   end
@@ -46,6 +46,7 @@ class ListingsController < ApplicationController
     #Here each instance of the Address model is retrieved where the search parameter is included in it's postcode attribute.
     @addresses = Address.where("postcode LIKE ?", "%" + params[:q] + "%")
     @addresses.each do |address|
+      # This query selects the instance of the Listing model that the current Address instance references via the belongs_to relationship.
       @listings << address.listing
     end
   end
@@ -67,6 +68,7 @@ class ListingsController < ApplicationController
   def create
     #This query sets up a new Listing without saving it, with the permitted parameters as its attributes.
     @listing = Listing.new(listing_params)
+    # This query selects the User instance that the set Listing references via the belongs_to relationship.
     @listing.user = current_user
 
     respond_to do |format|
