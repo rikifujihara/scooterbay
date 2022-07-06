@@ -1,0 +1,13 @@
+<div class='container-fluid d-flex flex-wrap border'>
+    <% @category_info.each do |category|%>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src=<%=category[:pic]%> alt="High-Speed Scooter Image">
+        <div class="card-body">
+            <h5 class="card-title"><%=category[:title]%></h5>
+            <p class="card-text"><%=category[:description]%></p>
+        <a href=<%=category[:link]%> class='btn btn-primary'>View Scooters</a>
+        </div>
+    </div>
+    <% end %>
+</div>
+
