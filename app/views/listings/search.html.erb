@@ -5,23 +5,4 @@
   <button type="submit" class='btn btn-outline-primary'>Search</button>
 </form>
 
-<div class='container-fluid d-flex flex-wrap'>
-<% @listings.each do |listing| %>
-    <div class="card mx-2 my-2" style="width: 16rem;">
-    <% if listing.picture.attached?%>
-    <%= image_tag listing.picture %>
-    <% else %>
-    <%= image_tag "https://scooterbay-public-images.s3.ap-southeast-2.amazonaws.com/default_scooter.jpeg" %>
-    <% end %>
-    <div class="card-body">
-      <h5 class="card-title"><%=listing.title%></h5>
-      <p class="card-text"><%=listing.description%></p>
-      <% if !listing.sold? %>
-      <%= link_to number_to_currency(listing.price), listing, class: "btn btn-primary"%>
-      <% else %>
-      <%= link_to "Sold", listing, class: "btn btn-primary"%>
-      <% end %>
-    </div>
-    </div>
-<% end %>
-</div>
+<%= render 'scootercards', listings: @listings %>
