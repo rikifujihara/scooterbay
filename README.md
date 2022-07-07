@@ -34,7 +34,7 @@ ScooterBay allows users to sign up and edit their profile with contact details, 
 
 ## Screenshots
 <img src='app/assets/images/screenshots/profile-min.png' style='border: solid'>
-<img src='app/assets/images/screenshots/root-min.png' style='border: solid'>
+<img src='app/assets/images/screenshots/root-min.png' style='border-style: solid'>
 <img src='app/assets/images/screenshots/index-min.png' style='border: solid'>
 <img src='app/assets/images/screenshots/listing-min.png' style='border: solid'>
 <img src='app/assets/images/screenshots/listing-show2-min.png' style='border: solid'>
