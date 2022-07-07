@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_06_065329) do
+ActiveRecord::Schema.define(version: 2022_07_07_050252) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,7 +66,6 @@ ActiveRecord::Schema.define(version: 2022_07_06_065329) do
     t.string "brand"
     t.integer "price"
     t.text "description"
-    t.boolean "sold", default: false
     t.boolean "in_built_lighting", default: false
     t.boolean "double_motor", default: false
     t.boolean "pneumatic_tires", default: false

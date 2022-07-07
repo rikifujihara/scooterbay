@@ -90,6 +90,8 @@ ScooterBay is built on Ruby on Rails as its overarching framework. The view cons
 
 ## User Stories
 
+### Browsing listings by category
+Scooter buyers want to browse listings by category so that they can 
 
 ## Wireframes
 
