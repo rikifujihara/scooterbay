@@ -33,7 +33,7 @@ ScooterBay allows users to sign up and edit their profile with contact details, 
 <img src="app/assets/images/scooterbay-sitemap.jpg">
 
 ## Screenshots
-<img src='app/assets/images/screenshots/profile-min.png'>
+<img src='app/assets/images/screenshots/profile-min.png' style="height: 600px">
 <br>
 <hr>
 <br>
@@ -45,11 +45,11 @@ ScooterBay allows users to sign up and edit their profile with contact details, 
 <br>
 <hr>
 <br>
-<img src='app/assets/images/screenshots/listing-min.png'>
+<img src='app/assets/images/screenshots/listing-min.png' style='height: 800px'>
 <br>
 <hr>
 <br>
-<img src='app/assets/images/screenshots/listing-show2-min.png'>
+<img src='app/assets/images/screenshots/listing-show2-min.png' style='height: 800px'>
 <br>
 <hr>
 <br>
@@ -57,7 +57,7 @@ ScooterBay allows users to sign up and edit their profile with contact details, 
 <br>
 <hr>
 <br>
-<img src='app/assets/images/screenshots/offer-show-min.png'>
+<img src='app/assets/images/screenshots/offer-show-min.png' style='height: 800px'>
 <br>
 <hr>
 <br>
