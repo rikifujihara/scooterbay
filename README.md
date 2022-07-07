@@ -136,7 +136,26 @@ E-Scooter buyers want the option to delete their offers in case they change thei
 E-Scooter sellers want to receive offers on their listings so they can see who is interested in buying their listing.
 
 ## Wireframes
+### Profile Page
+<img src='app/assets/images/wireframes/Account.png'>
 
+### Edit Listing Page
+<img src='app/assets/images/wireframes/Edit page.png'>
+
+### Home Page
+<img src='app/assets/images/wireframes/home.png'>
+
+### New Listing Page
+<img src='app/assets/images/wireframes/New page.png'>
+
+### Search Page
+<img src='app/assets/images/wireframes/search_index (1).png'>
+
+### Show Page
+<img src='app/assets/images/wireframes/Show page.png'>
+
+### Watchlist Page
+<img src='app/assets/images/wireframes/Watchlist.png'>
 
 ## ERD
 <img src='app/assets/images/ERD.jpg'>
