@@ -91,11 +91,22 @@ ScooterBay is built on Ruby on Rails as its overarching framework. The view cons
 ## User Stories
 
 ### Browsing listings by category
-Scooter buyers want to browse listings by category so that they can 
+Scooter buyers want to browse listings by category so that they can find the specific type of scooter that they are interesting in buying.
+
+### Browsing listings by postcode
+Scooter buyers want to browse listings by postcode so that they can find scooters that are geographically close to them.
+
+### Editing profile - profile picture
+ScooterBay users want to set their profile pictures so that they can express their individuality to the other users on the site and add credibility to their profile.
+
+### Editing profile - bio
+ScooterBay users want to add bios to their profiles so that they can express their individuality to the other users on the site and show some of their personality.
+
 
 ## Wireframes
 
 ## ERD
+<img src='app/assets/images/ERD.jpg'>
 
 ## High Level Abstractions
 

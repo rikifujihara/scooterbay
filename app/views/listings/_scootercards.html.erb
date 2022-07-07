@@ -13,13 +13,8 @@
       <h5 class="card-title"><%=listing.title%></h5>
     <!-- This query selects the 'description' attribute of the current instance of the Listing model within the @listing array-->
       <p class="card-text"><%=listing.description%></p>
-    <!-- This query retrieves the 'sold?' boolean attribute of the current instance of the Listing model within the @listing array-->
-      <% if !listing.sold? %>
     <!-- This query selects the 'price' attribute of the current instance of the Listing model within the @listing array-->
       <%= link_to number_to_currency(listing.price), listing, class: "btn btn-primary"%>
-      <% else %>
-      <%= link_to "Sold", listing, class: "btn btn-primary"%>
-      <% end %>
     </div>
     </div>
 <% end %>
