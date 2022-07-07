@@ -76,10 +76,20 @@ ScooterBay allows users to sign up and edit their profile with contact details, 
 <img src='app/assets/images/screenshots/edit-address-min.png'>
 
 ### Target Audience
+The target audience of ScooterBay is those wishing to save money on the cost of aquiring an E-Scooter and those wanting to sell their E-Scooters.
 
 ### Tech Stack
 
+- Ruby on Rails
+- HTML
+- CSS/SCSS (BootStrap)
+- Heroku
+- AWS S3 Storage
+
+ScooterBay is built on Ruby on Rails as its overarching framework. The view consists of html.erb files rendered by the browser. Scss adds styling to the html pages and the site is deployed to Heroku. Image uploads and static images are stored and accessed using AWS S3.
+
 ## User Stories
+
 
 ## Wireframes
 
