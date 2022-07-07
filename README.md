@@ -28,7 +28,7 @@ ScooterBay allows users to sign up and edit their profile with contact details, 
 - Administrability
 
 ### Sitemap
-
+<img src="app/assets/images/scooterbay-sitemap.jpg">
 
 ### Screenshots
 
