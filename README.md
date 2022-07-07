@@ -102,8 +102,41 @@ ScooterBay users want to set their profile pictures so that they can express the
 ### Editing profile - bio
 ScooterBay users want to add bios to their profiles so that they can express their individuality to the other users on the site and show some of their personality.
 
+### Editing profile - deleting account
+ScooterBay users want to have the option to delete their account so that if they no longer need to use ScooterBay, they can rest assured that all of their data is not kept on ScooterBay's storage services.
+
+### Listings - creating listings
+E-Scooter sellers want to create listings so that they can be found by potential buyers.
+
+### Listings - editing listings
+E-Scooter sellers want to attach an image to their listings so that buyers can see the scooter visually to aid the model and description.
+
+
+E-Scooter sellers want to specify an address for their listing so that they can increase the chance for their listing to be found by nearby buyers.
+
+### Listings - deleting listings
+E-Scooter sellers want to delete their listings so that they don't receive enquiries on listings that they've sold in person or no longer wish to sell.
+
+### Watchlist - adding to watchlist
+E-Scooter buyers want to add listings to their watchlist so that they can save listings that they are interested in without making an offer.
+
+### Watchlist - adding to watchlist
+E-Scooter buyers want to remove listings from their watchlist so that they can get rid of listings that they are no longer interested in.
+
+### Offers - making offers
+E-Scooter buyers want to make offers on other people's listings so that they can create the opportunity to suggest a price along with a message, so they can buy the listing at the listing price or at a bargain if the buyer agrees.
+
+### Offers - editing offers
+E-Scooter buyers want to edit offers they have made on others' listings so that they can edit the message or offer price on their offer in case they change their mind.
+
+### Offers - deleting offers
+E-Scooter buyers want the option to delete their offers in case they change their minds and no longer want to purchase the listing.
+
+### Offers - receiving offers
+E-Scooter sellers want to receive offers on their listings so they can see who is interested in buying their listing.
 
 ## Wireframes
+
 
 ## ERD
 <img src='app/assets/images/ERD.jpg'>
