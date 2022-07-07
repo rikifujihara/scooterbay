@@ -15,9 +15,17 @@ Too many brand-new E-Scooters being purchased is also worse for sustainability t
 ## Description of ScooterBay
 
 ### Purpose
+The purpose of ScooterBay is to bring connect buyers and sellers of second-hand E-Scooters in order to save consumers money and help with sustainability.
 
+### Functionality
+ScooterBay allows users to sign up and edit their profile with contact details, a bio and a profile picture. Users can also create, edit and destroy listings, add others' listings to their watchlist and submit and receive offers on listings. Addresses can be specified to listings so they can be searched for via postcode. Categories are also assigned to listings so that they can be filtered. Conditional logic in the erb pages render relevant information depending on the user's access rights and relationship to the given listing or other entity. User can see when they've been a user since, and how long ago they've made/received offers.
 
-### Functionality/features
+### Features
+- Authentication
+- Authorisation
+- Image uploading capability
+- Searching and filtering capability
+- Administrability
 
 ### Sitemap
 
