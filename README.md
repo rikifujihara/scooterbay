@@ -1,16 +1,21 @@
 # ScooterBay - Two Sided Marketplace Application
 
 ## The problem ScooterBay solves
-fsdfsdf
+E-Scooters have exploded in popularity over the past few years, especially with the adoption of E-Scooter renting services such as Lime making the EV mainstream. Many people are buying these E-Scooters brand new, and as it stands there is no two-sided-marketplace specifically dedicated to E-Scooters.
 
 ## Why it's a problem that needs solving
-fewf
+Consumers want to see what it's like to use an E-Scooter without buying brand new and without having to rent for an extended period. For example, if someone wants to see what it's like to commute to work on an E-Scooter every day for a month, they would either have to buy one brand new at a brand new price, or try renting through a service like Lime everyday (which would be very expensive over a month). A two-sided-marketplace will reduce this cost.
 
-### link to GitHub repo <a link='#'>here</a>
+Many E-Scooters are being bought as impulse purchases. A two-sided-marketplace will reduce the cost of those impulse purchases (as they will be second hand), and allow those same purchases to be sold back to others.
+
+Too many brand-new E-Scooters being purchased is also worse for sustainability than if more second-hand scooters are being bought as that will mean less scooters in landfill over the long term.
+
+### link to GitHub repo <a href='https://github.com/rikifujihara/scooterbay'>here</a>
 
 ## Description of ScooterBay
 
 ### Purpose
+
 
 ### Functionality/features
 
@@ -53,3 +58,5 @@ How does the above link in with MVC?
 ## Database Schema design
 
 ## How tasks are allocated and tracked in the project
+
+### link to Trello board <a href='https://trello.com/invite/b/KVZvpHL0/9aacbe6e24c654b43d825dc38447d555/scooterbay'>here</a>
