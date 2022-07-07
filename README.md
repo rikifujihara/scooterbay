@@ -32,7 +32,18 @@ ScooterBay allows users to sign up and edit their profile with contact details, 
 ### Sitemap
 <img src="app/assets/images/scooterbay-sitemap.jpg">
 
-### Screenshots
+## Screenshots
+<img src='app/assets/images/screenshots/profile-min.png'>
+<img src='app/assets/images/screenshots/root-min.png'>
+<img src='app/assets/images/screenshots/index-min.png' style='height: 500px'>
+<img src='app/assets/images/screenshots/listing-min.png'>
+<img src='app/assets/images/screenshots/listing-show2-min.png'>
+<img src='app/assets/images/screenshots/watchlist-min.png'>
+<img src='app/assets/images/screenshots/offer-show-min.png'>
+<img src='app/assets/images/screenshots/offer-edit-min.png'>
+<img src='app/assets/images/screenshots/offers-in-min.png'>
+<img src='app/assets/images/screenshots/offers-out-min.png'>
+<img src='app/assets/images/screenshots/edit-address-min.png' style='height: 400px'>
 
 ### Target Audience
 
