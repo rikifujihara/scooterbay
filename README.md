@@ -160,11 +160,18 @@ E-Scooter sellers want to receive offers on their listings so they can see who i
 ## ERD
 <img src='app/assets/images/ERD.jpg'>
 
-## High Level Abstractions
-
 ## Third party services
 ### Devise
+Devise is a ruby gem developed to handle user authentication in Rails apps. Devise is modular - Scooterbay utilises database authentication and input validations. Devise fits in perfectly with Rails' MVC architecture and handles much of the abstractions of user authentication. The views for user authentication such as login and signup pages can be generated in order to edit and use them. These views are already linked to a controller which is not accessible by default, although ScooterBay's source code accesses the User controller in order to add some custom functionality. Devise was used to create the User model which formed the basis of the user experience and allowed greater ease of development. 
+
 ### Bootstrap
+ScooterBay is styled using Bootstrap. The Bootstrap components were accessed via their open-source website <a href='https://getbootstrap.com/'>here</a>. The stylesheets and JavaScript script are accessed via a CDN (content delivery network) instead of a bundled gem or NPM. CSS classes are then applied to various elements to apply the Bootstrap styles. The use of Bootstrap greatly improved speed of development as it allowed more time to focus on the logic of the views rather than the specific visual attributes of elements such as borders, padding, margin and the like.
+
+### Bootstrap
+ScooterBay is styled using Bootstrap. The Bootstrap components were accessed via their open-source website <a href='https://getbootstrap.com/'>here</a>. The stylesheets and JavaScript script are accessed via a CDN (content delivery network) instead of a bundled gem or NPM. CSS classes are then applied to various elements to apply the Bootstrap styles. The use of Bootstrap greatly improved speed of development as it allowed more time to focus on the logic of the views rather than the specific visual attributes of elements such as borders, padding, margin and the like.
+
+### AWS S3
+
 
 ## High Level Components (Abstractions)
 ### MVC architecture and inheritance
