@@ -33,17 +33,47 @@ ScooterBay allows users to sign up and edit their profile with contact details, 
 <img src="app/assets/images/scooterbay-sitemap.jpg">
 
 ## Screenshots
-<img src='app/assets/images/screenshots/profile-min.png' style='border: solid'>
-<img src='app/assets/images/screenshots/root-min.png' style='border-style: solid'>
-<img src='app/assets/images/screenshots/index-min.png' style='border: solid'>
-<img src='app/assets/images/screenshots/listing-min.png' style='border: solid'>
-<img src='app/assets/images/screenshots/listing-show2-min.png' style='border: solid'>
-<img src='app/assets/images/screenshots/watchlist-min.png' style='border: solid'>
-<img src='app/assets/images/screenshots/offer-show-min.png' style='border: solid'>
-<img src='app/assets/images/screenshots/offer-edit-min.png' style='border: solid'>
-<img src='app/assets/images/screenshots/offers-in-min.png' style='border: solid'>
-<img src='app/assets/images/screenshots/offers-out-min.png' style='border: solid'>
-<img src='app/assets/images/screenshots/edit-address-min.png' style='border: solid'>
+<img src='app/assets/images/screenshots/profile-min.png'>
+<br>
+<hr>
+<br>
+<img src='app/assets/images/screenshots/root-min.png'>
+<br>
+<hr>
+<br>
+<img src='app/assets/images/screenshots/index-min.png'>
+<br>
+<hr>
+<br>
+<img src='app/assets/images/screenshots/listing-min.png'>
+<br>
+<hr>
+<br>
+<img src='app/assets/images/screenshots/listing-show2-min.png'>
+<br>
+<hr>
+<br>
+<img src='app/assets/images/screenshots/watchlist-min.png'>
+<br>
+<hr>
+<br>
+<img src='app/assets/images/screenshots/offer-show-min.png'>
+<br>
+<hr>
+<br>
+<img src='app/assets/images/screenshots/offer-edit-min.png'>
+<br>
+<hr>
+<br>
+<img src='app/assets/images/screenshots/offers-in-min.png'>
+<br>
+<hr>
+<br>
+<img src='app/assets/images/screenshots/offers-out-min.png'>
+<br>
+<hr>
+<br>
+<img src='app/assets/images/screenshots/edit-address-min.png'>
 
 ### Target Audience
 
