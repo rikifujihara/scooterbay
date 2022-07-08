@@ -226,6 +226,44 @@ This inheritance provides the functionality to the custom controllers and models
 ## Model relations
 "has_one", or "has_many", etc
 
+The models in ScooterBay have various Activerecord associations.
+
+### Listing
+<strong>belongs_to :user</strong>
+
+The Listing model references instances of the User model through the 'belongs_to' relationship.
+
+<strong>belongs_to :category</strong>
+
+The Listing model references instances of the Category model through the 'belongs_to' relationship.
+
+<strong>has_one :address, dependent: :destroy</strong>
+
+The Listing model is referenced by instances of the Address model through a has_one relationship. The Address instances referencing Listings are dependent on the Listings so are deleted when the referenced Listing is deleted.
+
+<strong>has_one_attached :picture, dependent: :destroy</strong>
+
+Listings reference active_storage attachments via a has_one_attached relationship. The active storage instances referencing Listings are dependent on the Listings so are deleted when the referenced Listing is deleted.
+
+### Address
+<strong>belongs_to :listing</strong>
+Instances of the Address model each reference an instance of a Listing model through a 'belongs_to' relationship.
+
+### Category
+<strong>has_many :listings</strong>
+Instances of the Category model are each referenced by zero to many instances of the Listings model through a has_many relationship.
+
+### Offer
+<strong>belongs_to :listing</strong>
+
+Instances of the Offer model each belong to one instance of the Listing model through a belongs_to relationship.
+
+<strong>belongs_to :offerer, foreign_key: "offerer_id", class_name: "User"</strong>
+
+
+<strong>belongs_to :merchant, foreign_key: "merchant_id", class_name: "User"</strong>
+
+
 ## Database relations
 0 or 1 etc, one to many etc
 
