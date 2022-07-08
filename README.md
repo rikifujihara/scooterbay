@@ -302,11 +302,11 @@ Users have the following relationships implemented in the database:
 
 - 'one mandatory to one optional' relationship with activestorage attachments. Activestorage attachments must have one User but Users can have one or zero active storage attachments.
 
-- '*two mandatory to optional many' relationship with Offers. Offers must have Users but Users can have zero to many Offers. * When an offer is created it will reference two different Users, one as a merchant and one as an offerer
+- '* two mandatory to optional many' relationship with Offers. Offers must have Users but Users can have zero to many Offers. * When an offer is created it will reference two different Users, one as a merchant and one as an offerer
 
-- 'one mandatory to optional many relationship with Listings.  Listings must have one User but Users can have zero or many Listings.
+- 'one mandatory to optional many' relationship with Listings.  Listings must have one User but Users can have zero or many Listings.
 
-- 'one mandatory to optional many relationship with WatchedItems. WatchedItems must have one User but Users can have no WatchedItems.
+- 'one mandatory to optional many' relationship with WatchedItems. WatchedItems must have one User but Users can have no WatchedItems.
 
 ### Active storage attachments
 
@@ -322,31 +322,43 @@ Offers have the following database relationships.
 
 - '*two mandatory to optional many' relationship with Users. Offers must have Users but Users can have zero or many Offers. * When an offer is created it will reference two different Users, one as a merchant and one as an offerer
 
-- 'one mandatory to optional many relationship with Listings.  Offers must have one Listing but Listings can have zero or many Offers.
+- 'one mandatory to optional many' relationship with Listings.  Offers must have one Listing but Listings can have zero or many Offers.
 
 ### Listings
 
 Listings have the following database relationships.
 
-- 'one mandatory to optional many relationship with Offers.  Offers must have one Listing but Listings can have zero or no Offers.
+- 'one mandatory to optional many' relationship with Offers.  Offers must have one Listing but Listings can have zero or no Offers.
 
-- 'one mandatory to optional many relationship with Users.  Listings must have one User but Users can have many or no Listings.
+- 'one mandatory to optional many' relationship with Users.  Listings must have one User but Users can have many or no Listings.
 
 - 'one mandatory to one optional' relationship with Activestorage attachments. Activestorage attachments must have one Listing but Listings can have zero or one active storage attachment.
 
 - 'one mandatory to one optional' relationship with Addresses. Addresses must have one Listing but Listings can have zero or one Address.
 
-- 'one mandatory to optional many relationship with WatchedItems.  WatchedItems must have one Listing but Listings can have zero or no WatchedItems.
+- 'one mandatory to optional many' relationship with WatchedItems.  WatchedItems must have one Listing but Listings can have zero or no WatchedItems.
+
+- 'one mandatory to many optional' relationship with Categories. Listings must have one category but Categories can have zero or many Listings.
+
+### Addresses
+
+Addresses has the following database relationship.
+
+- 'one optional to one mandatory' relationship with Listings. Addresses must have one Listing but Listings can have zero or one Address.
 
 ### WatchedItems
 
 WatchedItems have the following database relationships.
 
-- 'one mandatory to optional many relationship with Listings.  WatchedItems must have one Listing but Listings can have zero or no WatchedItems.
+- 'one mandatory to optional many' relationship with Listings.  WatchedItems must have one Listing but Listings can have zero or no WatchedItems.
 
-- 'one mandatory to optional many relationship with Users.  WatchedItems must have one User but Users can have zero or many WatchedItems.
+- 'one mandatory to optional many' relationship with Users.  WatchedItems must have one User but Users can have zero or many WatchedItems.
 
+### Categories
 
+Categories has the following database relationship.
+
+- 'one mandatory to many optional' relationship with Listings. Listings must have one category but Categories can have zero or many Listings.
 
 
 ## Database Schema design
