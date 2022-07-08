@@ -296,7 +296,41 @@ Instances of the WatchedItem model reference instances of the User model through
 Instances of the WatchedItem model reference instances of the Listing model through a belongs_to relationship.
 
 ## Database relations
-0 or 1 etc, one to many etc
+
+### Users
+Users have the following relationships implemented in the database:
+
+- 'one mandatory to one optional' relationship with activestorage attachments. Activestorage attachments must have one User but Users can have no active storage attachments.
+
+- '*two mandatory to optional many' relationship with Offers. Offers must have Users but Users can have no Offers. * When an offer is created it will reference two different Users, one as a merchant and one as an offerer
+
+- 'one mandatory to optional many relationship with Listings.  Listings must have one User but Users can have no Listings.
+
+- 'one mandatory to optional many relationship with WatchedItems. WatchedItems must have one User but Users can have no WatchedItems.
+
+### Active storage attachments
+
+Active storage attachments have the following database relationships.
+
+- 'one mandatory to one optional' relationship with Users. Activestorage attachments must have one User but Users can have no active storage attachments.
+
+- 'one mandatory to one optional' relationship with Listings. Activestorage attachments must have one Listing but Listings can have no active storage attachments.
+
+### Offers
+
+Offers have the following database relationships.
+
+- '*two mandatory to optional many' relationship with Users. Offers must have Users but Users can have no Offers. * When an offer is created it will reference two different Users, one as a merchant and one as an offerer
+
+- 'one mandatory to optional many relationship with Listings.  Offers must have one Listing but Listings can have no Offers.
+
+### Listings
+
+Listings have the following database relationships.
+
+- 'one mandatory to optional many relationship with Listings.  Offers must have one Listing but Listings can have no Offers.
+
+
 
 ## Database Schema design
 
