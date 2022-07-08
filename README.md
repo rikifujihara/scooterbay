@@ -365,7 +365,8 @@ Categories has the following database relationship.
 ## Database Schema design
 
 ``` Ruby
-ActiveRecord::Schema.define(version: 2022_07_07_050252) do
+
+ActiveRecord::Schema.define(version: 2022_07_08_115340) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -446,22 +447,6 @@ ActiveRecord::Schema.define(version: 2022_07_07_050252) do
     t.index ["offerer_id"], name: "index_offers_on_offerer_id"
   end
 
-  create_table "orders", force: :cascade do |t|
-    t.bigint "listing_id", null: false
-    t.bigint "buyer_id", null: false
-    t.bigint "seller_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["buyer_id"], name: "index_orders_on_buyer_id"
-    t.index ["listing_id"], name: "index_orders_on_listing_id"
-    t.index ["seller_id"], name: "index_orders_on_seller_id"
-  end
-
-  create_table "pages", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -496,9 +481,6 @@ ActiveRecord::Schema.define(version: 2022_07_07_050252) do
   add_foreign_key "offers", "listings"
   add_foreign_key "offers", "users", column: "merchant_id"
   add_foreign_key "offers", "users", column: "offerer_id"
-  add_foreign_key "orders", "listings"
-  add_foreign_key "orders", "users", column: "buyer_id"
-  add_foreign_key "orders", "users", column: "seller_id"
   add_foreign_key "watched_items", "listings"
   add_foreign_key "watched_items", "users"
 end
@@ -506,6 +488,69 @@ end
 ```
 
 ## How tasks are allocated and tracked in the project
+
+Trello was the main tool for planning and tracking tasks in building ScooterBay.
+
+### MVP
+The process was to first plan out the requirements for building an MVP.
+
+<img src='app/assets/images/trello/mvp.png'>
+
+### Offer system
+
+With an MVP complete, the functionality of ScooterBay was extended to include an offer system - this functionality was planned using user stories to ensure that efforts were focused on fulfilling the end-user's needs.
+
+<img src='app/assets/images/trello/offer-system.png'>
+
+### Search functionality
+
+With the offer system implemented, the functionality of ScooterBay was extended to facilitate search functionality - this functionality was planned using a simple user story and an action checklist.
+
+<img src='app/assets/images/trello/search.png'>
+
+### Filtering functionality
+
+With the search functionality implemented, the functionality of ScooterBay was extended to facilitate search filtering based on category - this functionality was planned using a simple user story and an action checklist.
+
+<img src='app/assets/images/trello/filtering.png'>
+
+### Addresses
+
+With the filtering functionality implemented, the functionality of ScooterBay was extended to include addresses on listings - this functionality was planned using a user stories and an action checklist.
+
+<img src='app/assets/images/trello/addresses.png'>
+
+### Contact details on listings
+
+With the addresses implemented, the functionality of ScooterBay was extended to facilitate the display of contact details on listings - this functionality was planned using a user story and an action checklist.
+
+<img src='app/assets/images/trello/contact-details.png'>
+
+### Watchlist
+
+With the contact detail displays implemented, the functionality of ScooterBay was extended to include a watchlist system - this functionality was planned using a user stories and an action checklist.
+
+<img src='app/assets/images/trello/wacthlist.png'>
+
+### User profile page
+
+With the watchlist system implemented, the functionality of ScooterBay was extended to include user profile pages - this functionality was planned using a user stories and an action checklist.
+
+<img src='app/assets/images/trello/user.png'>
+
+### Admin controls
+
+With the user profile page implemented, the functionality of ScooterBay was extended to include admin controls - this functionality was planned using a user stories.
+
+<img src='app/assets/images/trello/admin.png'>
+
+### Data validation
+
+With the desired functionality of ScooterBay implemented, data validation was planned using a checklist of each controller as a checklist heading and their form inputs as checklist items.
+
+<img src='app/assets/images/trello/validations.png'>
+
+
 
 
 
