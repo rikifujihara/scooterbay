@@ -17,10 +17,10 @@ Too many brand-new E-Scooters being purchased is also worse for sustainability t
 ## Description of ScooterBay
 
 ### Purpose
-The purpose of ScooterBay is to bring connect buyers and sellers of second-hand E-Scooters in order to save consumers money and help with sustainability.
+The purpose of ScooterBay is to connect buyers and sellers of second-hand E-Scooters in order to save consumers money and help with sustainability.
 
 ### Functionality
-ScooterBay allows users to sign up and edit their profile with contact details, a bio and a profile picture. Users can also create, edit and destroy listings, add others' listings to their watchlist and submit and receive offers on listings. Addresses can be specified to listings so they can be searched for via postcode. Categories are also assigned to listings so that they can be filtered. Conditional logic in the erb pages render relevant information depending on the user's access rights and relationship to the given listing or other entity. User can see when they've been a user since, and how long ago they've made/received offers.
+ScooterBay allows users to sign up and edit their profile with contact details, a bio and a profile picture. Users can also create, edit and destroy listings, add others' listings to their watchlist and submit and receive offers on listings. Addresses can be specified to listings so they can be searched for via postcode. Categories are also assigned to listings so that they can be filtered. Conditional logic in the erb pages render relevant information depending on the user's access rights and relationship to the given listing or other entity. Users can see when they've been a user since, and how long ago they've made/received offers.
 
 ### Features
 - Authentication
@@ -76,7 +76,7 @@ ScooterBay allows users to sign up and edit their profile with contact details, 
 <img src='app/assets/images/screenshots/edit-address-min.png'>
 
 ### Target Audience
-The target audience of ScooterBay is those wishing to save money on the cost of aquiring an E-Scooter and those wanting to sell their E-Scooters.
+The target audience of ScooterBay is those wishing to save money on the cost of acquiring an E-Scooter and those wanting to sell their E-Scooters.
 
 ### Tech Stack
 
@@ -91,7 +91,7 @@ ScooterBay is built on Ruby on Rails as its overarching framework. The view cons
 ## User Stories
 
 ### Browsing listings by category
-Scooter buyers want to browse listings by category so that they can find the specific type of scooter that they are interesting in buying.
+Scooter buyers want to browse listings by category so that they can find the specific type of scooter that they are interested in buying.
 
 ### Browsing listings by postcode
 Scooter buyers want to browse listings by postcode so that they can find scooters that are geographically close to them.
@@ -210,14 +210,14 @@ The controllers generated for ScooterBay include:
 - Pages
 - WatchedItems
 
-Each generated model has an accompanying controller to dictate the actions that are performed on those models' instances - such as creating new instances of the models or deleting them from the database. The Pages controller does not gave an accompanying model as it doesn't have any relevant instances to be maniuplated in the database - it's simply used to display a view (the homepage).
+Each generated model has an accompanying controller to dictate the actions that are performed on those models' instances - such as creating new instances of the models or deleting them from the database. The Pages controller does not have an accompanying model as it doesn't have any relevant instances to be manipulated in the database - it's simply used to display a view (the homepage).
 
 ### Inheritance
 
 Ruby has something called classes which are like blueprints or templates for objects. Classes can 'inherit' properties from other classes called superclasses, which greatly impacts Rails applications because it ties in very closely with its MVC architecture.
 
 Each generated Controller and Model inherits from superclasses. Generated Controllers all inherit from a superclass called ActionController - which gives the newly generated controller all of its properties and pre-built functionality. 
-Generated Models all inherit from a superclass called AplicationRecord - this allows the newly generated Model to use all of its properties and pre-built functionality.
+Generated Models all inherit from a superclass called ApplicationRecord - this allows the newly generated Model to use all of its properties and pre-built functionality.
 
 
 This inheritance provides the functionality to the custom controllers and models which allow for the modular, conventional development methodology of MVC.
@@ -301,9 +301,9 @@ The following tables in ScooterBay's database included the following relations.
 ### Users
 Users have the following relationships implemented in the database:
 
-- 'one mandatory to one optional' relationship with activestorage attachments. Activestorage attachments must have one User but Users can have one or zero active storage attachments.
+- 'one mandatory to one optional' relationship with Activestorage attachments. Activestorage attachments must have one User but Users can have one or zero active storage attachments.
 
-- '* two mandatory to optional many' relationship with Offers. Offers must have Users but Users can have zero to many Offers. * When an offer is created it will reference two different Users, one as a merchant and one as an offerer
+- '* two mandatory to many optional' relationship with Offers. Offers must have Users but Users can have zero to many Offers. * When an offer is created it will reference two different Users, one as a merchant and one as an offeror
 
 - 'one mandatory to optional many' relationship with Listings.  Listings must have one User but Users can have zero or many Listings.
 
@@ -321,7 +321,7 @@ Active storage attachments have the following database relationships.
 
 Offers have the following database relationships.
 
-- '*two mandatory to optional many' relationship with Users. Offers must have Users but Users can have zero or many Offers. * When an offer is created it will reference two different Users, one as a merchant and one as an offerer
+- '*two mandatory to many optional' relationship with Users. Offers must have Users but Users can have zero or many Offers. * When an offer is created it will reference two different Users, one as a merchant and one as an offeror
 
 - 'one mandatory to optional many' relationship with Listings.  Offers must have one Listing but Listings can have zero or many Offers.
 
@@ -343,13 +343,13 @@ Listings have the following database relationships.
 
 ### Addresses
 
-Addresses has the following database relationship.
+The Addresses table has the following database relationship.
 
 - 'one optional to one mandatory' relationship with Listings. Addresses must have one Listing but Listings can have zero or one Address.
 
 ### WatchedItems
 
-WatchedItems have the following database relationships.
+The WatchedItems table has the following database relationships.
 
 - 'one mandatory to optional many' relationship with Listings.  WatchedItems must have one Listing but Listings can have zero or no WatchedItems.
 
@@ -357,7 +357,7 @@ WatchedItems have the following database relationships.
 
 ### Categories
 
-Categories has the following database relationship.
+The Categories table has the following database relationship.
 
 - 'one mandatory to many optional' relationship with Listings. Listings must have one category but Categories can have zero or many Listings.
 
@@ -516,7 +516,7 @@ With the search functionality implemented, the functionality of ScooterBay was e
 
 ### Addresses
 
-With the filtering functionality implemented, the functionality of ScooterBay was extended to include addresses on listings - this functionality was planned using a user stories and an action checklist.
+With the filtering functionality implemented, the functionality of ScooterBay was extended to include addresses on listings - this functionality was planned using user stories and an action checklist.
 
 <img src='app/assets/images/trello/addresses.png'>
 
@@ -528,19 +528,19 @@ With the addresses implemented, the functionality of ScooterBay was extended to 
 
 ### Watchlist
 
-With the contact detail displays implemented, the functionality of ScooterBay was extended to include a watchlist system - this functionality was planned using a user stories and an action checklist.
+With the contact detail displays implemented, the functionality of ScooterBay was extended to include a watchlist system - this functionality was planned using user stories and an action checklist.
 
 <img src='app/assets/images/trello/wacthlist.png'>
 
 ### User profile page
 
-With the watchlist system implemented, the functionality of ScooterBay was extended to include user profile pages - this functionality was planned using a user stories and an action checklist.
+With the watchlist system implemented, the functionality of ScooterBay was extended to include user profile pages - this functionality was planned using user stories and an action checklist.
 
 <img src='app/assets/images/trello/user.png'>
 
 ### Admin controls
 
-With the user profile page implemented, the functionality of ScooterBay was extended to include admin controls - this functionality was planned using a user stories.
+With the user profile page implemented, the functionality of ScooterBay was extended to include admin controls - this functionality was planned using user stories.
 
 <img src='app/assets/images/trello/admin.png'>
 
