@@ -167,21 +167,61 @@ Devise is a ruby gem developed to handle user authentication in Rails apps. Devi
 ### Bootstrap
 ScooterBay is styled using Bootstrap. The Bootstrap components were accessed via their open-source website <a href='https://getbootstrap.com/'>here</a>. The stylesheets and JavaScript script are accessed via a CDN (content delivery network) instead of a bundled gem or NPM. CSS classes are then applied to various elements to apply the Bootstrap styles. The use of Bootstrap greatly improved speed of development as it allowed more time to focus on the logic of the views rather than the specific visual attributes of elements such as borders, padding, margin and the like.
 
-### Bootstrap
-ScooterBay is styled using Bootstrap. The Bootstrap components were accessed via their open-source website <a href='https://getbootstrap.com/'>here</a>. The stylesheets and JavaScript script are accessed via a CDN (content delivery network) instead of a bundled gem or NPM. CSS classes are then applied to various elements to apply the Bootstrap styles. The use of Bootstrap greatly improved speed of development as it allowed more time to focus on the logic of the views rather than the specific visual attributes of elements such as borders, padding, margin and the like.
-
-### AWS S3
-
+### Heroku and AWS S3
+AWS s3 was used to store uploaded images. The deployed app was given access rights via credentials stored in the app's environment variables. Since the app is deployed on the free tier of Heroku's hosting, the server is turned off after being idle, which means any stored images would be lost. Therefore it was important to have the images stored using an external service.
 
 ## High Level Components (Abstractions)
-### MVC architecture and inheritance
-What is MVC?:
 
-Explain the concept of inheritance:
+What is MVC?
 
-How inheritance takes place in a rails application:
+Rails applications like ScooterBay use what's called the 'model view controller' (MVC) design pattern. MVC breaks down the application's structure into three main components which handle specific tasks.
 
-How does the above link in with MVC?
+### Model
+The model represents the data and relationships of the application. The models in Scooterbay include the following:
+
+- User
+- Listing
+- WatchedItem
+- Address
+- Offer
+- Category
+
+### View
+
+The view handles what is displayed to the user, which includes rendering content and receiving input. The primary views of ScooterBay include:
+
+- User
+- Listing
+- Offer
+- Address
+
+It wasn't necessary to include views for each model listed above. For example, the WatchedItems model was just created to store the relationship between Listings and Users - the controller action of creating the WatchedItem simply creates a new instance by assigning foreign keys on the click of a button in a Listings view - therefore there's no need to display or edit the actual WatchedItem instance in any of the views - it's simply used later to retrieve the desired Listing instances to display to the user.
+
+### Controller
+
+The controller is the brains of the design pattern. The view goes through the controller to retrieve data from the model. Controllers process input from the user via the view then perform the relevant actions which may include redirects or interactions with the database via the model.
+
+The controllers generated for ScooterBay include:
+
+- Addresses
+- Listings
+- Users
+- Offers
+- Pages
+- WatchedItems
+
+Each generated model has an accompanying controller to dictate the actions that are performed on those models' instances - such as creating new instances of the models or deleting them from the database. The Pages controller does not gave an accompanying model as it doesn't have any relevant instances to be maniuplated in the database - it's simply used to display a view (the homepage).
+
+### Inheritance
+
+Ruby has something called classes which are like blueprints or templates for objects. Classes can 'inherit' properties from other classes called superclasses, which greatly impacts Rails applications because it ties in very closely with its MVC architecture.
+
+Each generated Controller and Model inherits from superclasses. Generated Controllers all inherit from a superclass called ActionController - which gives the newly generated controller all of its properties and pre-built functionality. 
+Generated Models all inherit from a superclass called AplicationRecord - this allows the newly generated Model to use all of its properties and pre-built functionality.
+
+
+This inheritance provides the functionality to the custom controllers and models which allow for the modular, conventional development methodology of MVC.
+
 
 ## Model relations
 "has_one", or "has_many", etc
