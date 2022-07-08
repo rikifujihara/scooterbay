@@ -224,7 +224,6 @@ This inheritance provides the functionality to the custom controllers and models
 
 
 ## Model relations
-"has_one", or "has_many", etc
 
 The models in ScooterBay have various Activerecord associations.
 
@@ -296,6 +295,8 @@ Instances of the WatchedItem model reference instances of the User model through
 Instances of the WatchedItem model reference instances of the Listing model through a belongs_to relationship.
 
 ## Database relations
+
+The following tables in ScooterBay's database included the following relations.
 
 ### Users
 Users have the following relationships implemented in the database:
@@ -504,7 +505,8 @@ end
 
 ```
 
-
 ## How tasks are allocated and tracked in the project
+
+
 
 ### link to Trello board <a href='https://trello.com/invite/b/KVZvpHL0/9aacbe6e24c654b43d825dc38447d555/scooterbay'>here</a>
