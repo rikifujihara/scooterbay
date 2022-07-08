@@ -554,4 +554,4 @@ With the desired functionality of ScooterBay implemented, data validation was pl
 
 
 
-### link to Trello board <a href='https://trello.com/invite/b/KVZvpHL0/9aacbe6e24c654b43d825dc38447d555/scooterbay'>here</a>
+### link to Trello board <a href='https://trello.com/b/KVZvpHL0/scooterbay'>here</a>
