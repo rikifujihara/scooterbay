@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_07_050252) do
+ActiveRecord::Schema.define(version: 2022_07_08_115036) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,17 +91,6 @@ ActiveRecord::Schema.define(version: 2022_07_07_050252) do
     t.index ["offerer_id"], name: "index_offers_on_offerer_id"
   end
 
-  create_table "orders", force: :cascade do |t|
-    t.bigint "listing_id", null: false
-    t.bigint "buyer_id", null: false
-    t.bigint "seller_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["buyer_id"], name: "index_orders_on_buyer_id"
-    t.index ["listing_id"], name: "index_orders_on_listing_id"
-    t.index ["seller_id"], name: "index_orders_on_seller_id"
-  end
-
   create_table "pages", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -141,9 +130,6 @@ ActiveRecord::Schema.define(version: 2022_07_07_050252) do
   add_foreign_key "offers", "listings"
   add_foreign_key "offers", "users", column: "merchant_id"
   add_foreign_key "offers", "users", column: "offerer_id"
-  add_foreign_key "orders", "listings"
-  add_foreign_key "orders", "users", column: "buyer_id"
-  add_foreign_key "orders", "users", column: "seller_id"
   add_foreign_key "watched_items", "listings"
   add_foreign_key "watched_items", "users"
 end
