@@ -1,5 +1,6 @@
 <h1>All Offers</h1>
 
 <% @offers.each do |offer| %>
+<!-- This query retrieves the title attribute of the Listing instance that the currently referenced Offer instance references-->
     <h2><%=offer.listing.title%><h2>
 <% end %>

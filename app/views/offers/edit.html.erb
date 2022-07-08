@@ -1,13 +1,16 @@
+<!-- This query retrieves the title attribute of the Listing model instance that the currently referenced Offer instance references -->
 <h1>Offer for <%=@offer.listing.title%></h1>
 
 <%= render 'form', offer: @offer %>
 <%= button_to "Cancel Offer", @offer, method: :delete, class: "btn btn-secondary"%>
 <p>
   <strong>Model:</strong>
+<!-- This query retrieves the title attribute of the Listing model instance that the currently referenced Offer instance references -->
   <%= @offer.listing.title %>
 </p>
 
 <% if @offer.listing.picture.attached?%>
+<!-- This query retrieves the referenced Activestorage attachment of the Listing model instance that the currently referenced Offer instance references -->
 <%= image_tag @offer.listing.picture, alt: @offer.listing.title  %>
 <% else %>
 <%= image_tag "https://scooterbay-public-images.s3.ap-southeast-2.amazonaws.com/default_scooter.jpeg" %>
@@ -16,6 +19,7 @@
 <p class="mt-2">
   Listing price:
   <strong>
+<!-- This query retrieves the price attribute of the Listing model instance that the currently referenced Offer instance references -->
   <%= number_to_currency(@offer.listing.price) %>
   </strong>
 </p>
@@ -24,15 +28,20 @@
   <div class="card-body">
     <h2>Merchant Details</h2>
     <% if @offer.merchant.avatar.attached? %>
+<!-- This query retrieves the referenced Activestorage attachment of the User model instance that the currently referenced Offer instance references -->
     <%= image_tag @offer.merchant.avatar, class: 'avatar'%>
     <% else %>
     <%= image_tag "https://scooterbay-public-images.s3.ap-southeast-2.amazonaws.com/default-avatar.jpeg", class: 'avatar'%>
     <% end %>
+<!-- This query retrieves the first_name attribute of the User model instance that the currently referenced Offer instance references -->
     <h3><%= @offer.merchant.first_name %> </h3>
+<!-- This query retrieves the username attribute of the User model instance that the currently referenced Offer instance references -->
     <p class="card-subtitle text-muted"><%= link_to @offer.merchant.username, @offer.merchant %> </p>
     <h5>Contact</h5>
+<!-- This query retrieves the email attribute of the User model instance that the currently referenced Offer instance references -->
     <p>Email: <%= @offer.merchant.email %> </p>
     <% if @offer.merchant.mobile? %>
+<!-- This query retrieves the mobile attribute of the User model instance that the currently referenced Offer instance references -->
     <p> Mobile: <%= @offer.merchant.mobile %></p>
     <% end %>
   </div>

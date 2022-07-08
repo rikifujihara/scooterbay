@@ -5,16 +5,23 @@
   <% @offers_in.each do |offer| %>
       <div class="card mx-2 my-2" style="width: 16rem;">
       <% if offer.listing.picture.attached?%>
+<!-- This query retrieves the referenced Activestorage attachment of the Listing model instance that the currently referenced Offer instance references -->     
       <%= image_tag offer.listing.picture %>
       <% else %>
       <%= image_tag "https://scooterbay-public-images.s3.ap-southeast-2.amazonaws.com/default_scooter.jpeg" %>
       <% end %>
       <div class="card-body">
+<!-- This query retrieves the title attribute of the Listing model instance that the currently referenced Offer instance references -->      
         <h5 class="card-title"><%=offer.listing.title%></h5>
+<!-- This query retrieves the description attribute of the Listing model instance that the currently referenced Offer instance references -->      
         <p class="card-text"><%=offer.listing.description%></p>
+<!-- This query retrieves the first_name attribute of the User model instance that the currently referenced Offer instance references -->      
         <h5 class="card-title">From <%=offer.offerer.first_name%></h5>
+<!-- This query retrieves the price attribute currently referenced Offer instance -->
         <h6 class="card-text">Price offered: <%=number_to_currency(offer.price)%></h6>
+<!-- This query retrieves the username attribute of the User model instance that the currently referenced Offer instance references -->      
         <p class="card-subtitle text-muted"><%= link_to offer.offerer.username, offer.offerer%></p>
+<!-- This query retrieves the message attribute currently referenced Offer instance -->
         <p class="card-text"><%=offer.message%></p>
         <%= link_to "View Offer", offer, class: "btn btn-primary my-1"%>
       </div>
