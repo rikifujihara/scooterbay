@@ -550,8 +550,4 @@ With the desired functionality of ScooterBay implemented, data validation was pl
 
 <img src='app/assets/images/trello/validations.png'>
 
-
-
-
-
 ### link to Trello board <a href='https://trello.com/b/KVZvpHL0/scooterbay'>here</a>
