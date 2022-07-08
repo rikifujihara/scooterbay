@@ -285,6 +285,15 @@ Users are referenced by instances of the WatchedItem model through a has_many re
 
 Users are referenced by instances of the Offer model via a has_many relationship. The Offers are dependent on the Users so are deleted when the referenced User is deleted.
 
+### WatchedItem
+
+<strong>belongs_to :user</strong>
+
+Instances of the WatchedItem model reference instances of the User model through a belongs_to relationship.
+
+<strong>belongs_to :listing</strong>
+
+Instances of the WatchedItem model reference instances of the Listing model through a belongs_to relationship.
 
 ## Database relations
 0 or 1 etc, one to many etc
