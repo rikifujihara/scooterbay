@@ -263,6 +263,28 @@ Instances of the Offer model each belong to one instance of the Listing model th
 
 <strong>belongs_to :merchant, foreign_key: "merchant_id", class_name: "User"</strong>
 
+### User
+<strong>has_one_attached :avatar, dependent: :destroy</strong>
+
+Users reference active_storage attachments via a has_one_attached relationship. The active storage instances referencing Users are dependent on the Users so are deleted when the referenced User is deleted.
+
+<strong>has_many :listings, dependent: :destroy</strong>
+
+Users are referenced by instances of the Listings model through a has_many relationship. The Listings are dependent on Users so are deleted when the referenced User is deleted.
+
+<strong>has_many :watched_items, dependent: :destroy</strong>
+
+Users are referenced by instances of the WatchedItem model through a has_many relationship. The WatchedItems are dependent on Users so are deleted when the referenced User is deleted.
+
+<strong>has_many :offers_in, foreign_key: "merchant_id", class_name: "Offer", dependent: :destroy
+</strong>
+
+<strong>
+  has_many :offers_out, foreign_key: "offerer_id", class_name: "Offer", dependent: :destroy
+</strong>
+
+Users are referenced by instances of the Offer model via a has_many relationship. The Offers are dependent on the Users so are deleted when the referenced User is deleted.
+
 
 ## Database relations
 0 or 1 etc, one to many etc
